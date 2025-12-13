@@ -43,7 +43,7 @@ export default function BlogPostPage() {
             className={`inline-flex items-center gap-2 text-gray-600 hover:text-[#5FAA3F] transition-colors duration-300 mb-6 sm:mb-8 animate-on-scroll ${heroVisible ? 'animate-textAppear animated' : ''}`}
           >
             <Icon name="arrow-left" className="w-4 h-4" />
-            <span className="text-sm sm:text-base">{t('blog.backToBlog')}</span>
+            <span className="text-sm sm:text-base">{String(t('blog.backToBlog'))}</span>
           </Link>
 
           {/* Blog Header */}
@@ -57,7 +57,7 @@ export default function BlogPostPage() {
 
             {/* Title */}
             <h1 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 animate-on-scroll ${heroVisible ? 'animate-textAppear animated stagger-2' : ''}`} style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-              {t(`blog.blog${postId}Title`)}
+              {String(t(`blog.blog${postId}Title`))}
             </h1>
 
             {/* Meta Information */}
@@ -96,14 +96,14 @@ export default function BlogPostPage() {
                 {/* Text - 60% */}
                 <div className="order-1 lg:order-2 lg:col-span-3">
                   <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                    {t(`blog.blog${postId}Introduction`)}
+                    {String(t(`blog.blog${postId}Introduction`))}
                   </p>
                 </div>
               </div>
             ) : (
               <div className="prose prose-lg max-w-none mb-8 sm:mb-10">
                 <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                  {t(`blog.blog${postId}Introduction`)}
+                  {String(t(`blog.blog${postId}Introduction`))}
                 </p>
               </div>
             )}
@@ -114,19 +114,19 @@ export default function BlogPostPage() {
                 <div key={index} className="relative">
                   {/* Section Heading */}
                   <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-                    {t(`blog.blog${postId}Section${index + 1}Heading`)}
+                    {String(t(`blog.blog${postId}Section${index + 1}Heading`))}
                   </h2>
 
                   {/* Section Content */}
                   <div className="prose prose-lg max-w-none">
                     <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                      {t(`blog.blog${postId}Section${index + 1}Content`)}
+                      {String(t(`blog.blog${postId}Section${index + 1}Content`))}
                     </p>
 
                     {/* Subheading */}
                     {section.subheading && (
                       <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4" style={{ color: '#1A1A1A', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                        {t(`blog.blog${postId}Section${index + 1}Subheading`)}
+                        {String(t(`blog.blog${postId}Section${index + 1}Subheading`))}
                       </h3>
                     )}
 
@@ -139,7 +139,7 @@ export default function BlogPostPage() {
                               <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: '#5FAA3F' }} />
                             </div>
                             <p className="text-base sm:text-lg text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                              {t(`blog.blog${postId}Section${index + 1}Point${pointIndex + 1}`)}
+                              {String(t(`blog.blog${postId}Section${index + 1}Point${pointIndex + 1}`))}
                             </p>
                           </li>
                         ))}
@@ -150,7 +150,7 @@ export default function BlogPostPage() {
                     {section.details && (
                       <div className="bg-[#F5F5F5] rounded-lg p-4 sm:p-6 mb-4 sm:mb-6 border-l-4" style={{ borderLeftColor: '#5FAA3F' }}>
                         <p className="text-base sm:text-lg text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                          {t(`blog.blog${postId}Section${index + 1}Details`)}
+                          {String(t(`blog.blog${postId}Section${index + 1}Details`))}
                         </p>
                       </div>
                     )}
@@ -170,7 +170,7 @@ export default function BlogPostPage() {
                 }}
               >
                 <Icon name="arrow-left" className="w-4 h-4" />
-                <span>{t('blog.backToBlog')}</span>
+                <span>{String(t('blog.backToBlog'))}</span>
               </Link>
             </div>
           </article>
