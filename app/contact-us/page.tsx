@@ -37,8 +37,7 @@ export default function ContactUsPage() {
       .required(t('contactUs.emailRequired') as string)
       .email(t('contactUs.emailInvalid') as string),
     message: Yup.string()
-      .required(t('contactUs.messageRequired') as string)
-      .min(10, t('contactUs.messageMinLength') as string),
+      .required(t('contactUs.messageRequired') as string),
   });
 
   const initialValues = {
