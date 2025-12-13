@@ -10,12 +10,12 @@ export default function Header() {
   const { t, changeLanguage, currentLanguage } = useTranslation();
 
   const navLinks = [
-    { href: '/', label: t('header.home') },
-    { href: '/about-us', label: t('header.aboutUs') },
-    { href: '/products', label: t('header.products') },
-    { href: '/gallery', label: t('header.gallery') },
-    { href: '/blog', label: t('header.blog') },
-    { href: '/contact-us', label: t('header.contactUs') },
+    { href: '/', label: String(t('header.home')) },
+    { href: '/about-us', label: String(t('header.aboutUs')) },
+    { href: '/products', label: String(t('header.products')) },
+    { href: '/gallery', label: String(t('header.gallery')) },
+    { href: '/blog', label: String(t('header.blog')) },
+    { href: '/contact-us', label: String(t('header.contactUs')) },
   ];
 
   const languages = [
@@ -171,7 +171,7 @@ export default function Header() {
             {/* Language Switcher - Mobile Menu */}
             <div className="flex items-center justify-center gap-2 px-3 sm:px-4 pt-2 border-t border-gray-200 mt-2">
               <span className="text-xs sm:text-sm text-gray-600 font-medium" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                {t('common.language')}
+                {String(t('common.language'))}
               </span>
               {languages.map((lang) => (
                 <button
@@ -183,9 +183,9 @@ export default function Header() {
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                   style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}
-                  aria-label={`Switch to ${lang.code === 'en' ? t('common.english') : t('common.gujarati')}`}
+                  aria-label={`Switch to ${lang.code === 'en' ? String(t('common.english')) : String(t('common.gujarati'))}`}
                 >
-                  {lang.code === 'en' ? t('common.english') : t('common.gujarati')}
+                  {lang.code === 'en' ? String(t('common.english')) : String(t('common.gujarati'))}
                 </button>
               ))}
             </div>

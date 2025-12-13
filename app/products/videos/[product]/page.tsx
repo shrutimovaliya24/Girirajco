@@ -113,7 +113,7 @@ export default function ProductVideoDetailPage() {
   }
 
   const hasCategories = productData.categories && Object.keys(productData.categories).length > 0;
-  const categories = hasCategories ? Object.keys(productData.categories) : [];
+  const categories = hasCategories && productData.categories ? Object.keys(productData.categories) : [];
 
   return (
     <div className="min-h-screen bg-white">

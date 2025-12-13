@@ -13,13 +13,13 @@ export default function WhyChooseUs() {
   const [featuresVisible, setFeaturesVisible] = useState<boolean[]>([]);
 
   const features = [
-    t('whyChooseUs.feature1'),
-    t('whyChooseUs.feature2'),
-    t('whyChooseUs.feature3'),
-    t('whyChooseUs.feature4'),
-    t('whyChooseUs.feature5'),
-    t('whyChooseUs.feature6'),
-    t('whyChooseUs.feature7'),
+    String(t('whyChooseUs.feature1')),
+    String(t('whyChooseUs.feature2')),
+    String(t('whyChooseUs.feature3')),
+    String(t('whyChooseUs.feature4')),
+    String(t('whyChooseUs.feature5')),
+    String(t('whyChooseUs.feature6')),
+    String(t('whyChooseUs.feature7')),
   ];
 
   useEffect(() => {
@@ -53,13 +53,13 @@ export default function WhyChooseUs() {
         {/* Section Title */}
         <div ref={titleRef} className={`text-center mb-4 sm:mb-5 md:mb-8 lg:mb-4 animate-on-scroll ${titleVisible ? 'animate-textAppear animated' : ''}`}>
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#FFFFFF', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-            {t('whyChooseUs.title')}
+            {String(t('whyChooseUs.title'))}
           </h2>
           <div className="flex justify-center mb-2 sm:mb-2.5 md:mb-3">
             <div className="w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 h-0.5 sm:h-1 bg-yellow-400"></div>
           </div>
           <p className={`text-xs sm:text-sm md:text-sm lg:text-base xl:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed animate-on-scroll ${titleVisible ? 'animate-textAppear animated' : ''}`} style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-            {t('whyChooseUs.description')}
+            {String(t('whyChooseUs.description'))}
           </p>
         </div>
 

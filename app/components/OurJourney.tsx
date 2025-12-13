@@ -16,43 +16,43 @@ export default function OurJourney() {
   const journeyData: JourneyItem[] = [
     {
       year: '2017',
-      title: t('ourJourney.journey1Title'),
-      description: t('ourJourney.journey1Desc'),
+      title: String(t('ourJourney.journey1Title')),
+      description: String(t('ourJourney.journey1Desc')),
     },
     {
       year: '2018',
-      title: t('ourJourney.journey2Title'),
-      description: t('ourJourney.journey2Desc'),
+      title: String(t('ourJourney.journey2Title')),
+      description: String(t('ourJourney.journey2Desc')),
     },
     {
       year: '2019',
-      title: t('ourJourney.journey3Title'),
-      description: t('ourJourney.journey3Desc'),
+      title: String(t('ourJourney.journey3Title')),
+      description: String(t('ourJourney.journey3Desc')),
     },
     {
       year: '2020',
-      title: t('ourJourney.journey4Title'),
-      description: t('ourJourney.journey4Desc'),
+      title: String(t('ourJourney.journey4Title')),
+      description: String(t('ourJourney.journey4Desc')),
     },
     {
       year: '2022',
-      title: t('ourJourney.journey5Title'),
-      description: t('ourJourney.journey5Desc'),
+      title: String(t('ourJourney.journey5Title')),
+      description: String(t('ourJourney.journey5Desc')),
     },
     {
       year: '2023',
-      title: t('ourJourney.journey6Title'),
-      description: t('ourJourney.journey6Desc'),
+      title: String(t('ourJourney.journey6Title')),
+      description: String(t('ourJourney.journey6Desc')),
     },
     {
       year: '2024',
-      title: t('ourJourney.journey7Title'),
-      description: t('ourJourney.journey7Desc'),
+      title: String(t('ourJourney.journey7Title')),
+      description: String(t('ourJourney.journey7Desc')),
     },
     {
       year: '2025',
-      title: t('ourJourney.journey8Title'),
-      description: t('ourJourney.journey8Desc'),
+      title: String(t('ourJourney.journey8Title')),
+      description: String(t('ourJourney.journey8Desc')),
     },
   ];
 
@@ -170,13 +170,13 @@ function JourneyItemComponent({ item, index, isInView }: { item: JourneyItem; in
         <div className="text-center mb-2 sm:mb-2.5 md:mb-3 lg:mb-4">
           
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-            {t('ourJourney.title')}
+            {String(t('ourJourney.title'))}
           </h2>
           <div className="flex justify-center mb-2 sm:mb-2.5">
             <div className="w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 h-0.5 sm:h-1 bg-yellow-400"></div>
           </div>
           <p className="text-xs sm:text-sm md:text-sm lg:text-base xl:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-            {t('ourJourney.description')}
+            {String(t('ourJourney.description'))}
           </p>
         </div>
 

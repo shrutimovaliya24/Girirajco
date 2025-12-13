@@ -82,12 +82,12 @@ export default function Hero() {
           <div ref={heroContentRef} className="order-2 lg:order-1 space-y-2 sm:space-y-2.5 md:space-y-3 lg:space-y-2.5 xl:space-y-3 2xl:space-y-3.5 flex flex-col justify-center">
             {/* 1. Main Heading - Line 1 */}
             <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#1A1A1A] leading-tight tracking-tight animate-on-scroll ${heroContentVisible ? 'animate-textAppear animated stagger-1' : ''}`} style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-              {t('hero.title')}
+              {String(t('hero.title'))}
             </h1>
 
             {/* 2. Description - Line 2 */}
             <p className={`text-xs sm:text-sm md:text-sm lg:text-base xl:text-lg text-[#1A1A1A] leading-relaxed max-w-2xl animate-on-scroll ${heroContentVisible ? 'animate-textAppear animated stagger-2' : ''}`} style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-              {t('hero.description')}
+              {String(t('hero.description'))}
             </p>
 
             {/* Buttons Container */}
@@ -101,7 +101,7 @@ export default function Hero() {
                   fontFamily: 'var(--font-poppins), Poppins, sans-serif'
                 }}
               >
-                <span>{t('hero.getBrochure')}</span>
+                <span>{String(t('hero.getBrochure'))}</span>
                 <FiDownload className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-4 lg:h-4" />
               </button>
 
@@ -122,7 +122,7 @@ export default function Hero() {
                   if (arrow) arrow.style.color = '#5FAA3F';
                 }}
               >
-                <span className="text-center">{t('hero.fuelCalculator')}</span>
+                <span className="text-center">{String(t('hero.fuelCalculator'))}</span>
                 <FiArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-4 lg:h-4" style={{ color: '#5FAA3F' }} />
               </Link>
             </div>
@@ -135,7 +135,7 @@ export default function Hero() {
                   +{yearsCount}
                 </div>
                 <div className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-lg">
-                  {t('hero.yearsExperience')}
+                  {String(t('hero.yearsExperience'))}
                 </div>
               </div>
 
@@ -145,7 +145,7 @@ export default function Hero() {
                   {installationsCount}+
                 </div>
                 <div className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-lg">
-                  {t('hero.successfulInstallations')}
+                  {String(t('hero.successfulInstallations'))}
                 </div>
               </div>
 
@@ -155,7 +155,7 @@ export default function Hero() {
                   {clientsCount}%
                 </div>
                 <div className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-base 2xl:text-lg">
-                  {t('hero.happyClients')}
+                  {String(t('hero.happyClients'))}
                 </div>
               </div>
             </div>
