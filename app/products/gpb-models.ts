@@ -1,0 +1,148 @@
+// Type for GPB Model
+export interface GPBModel {
+  id: string;
+  maxHeatCapacity: string; // kcal/hour
+  maxFuelConsumption: string; // kg/hour
+  electricityConsumption: string; // HP
+  autoControlPanel: string;
+  autoAshRemoval: string;
+  autoIgnition: string;
+  secondaryFuelFeeder: string;
+  ssCombustionChamber: string;
+  image?: string;
+  modelPath?: string;
+}
+
+// GPB Models Data
+export const gpbModels: GPBModel[] = [
+  {
+    id: 'GPB-01',
+    maxHeatCapacity: '1,00,000',
+    maxFuelConsumption: '24',
+    electricityConsumption: '0.25',
+    autoControlPanel: 'Standard',
+    autoAshRemoval: 'N/A',
+    autoIgnition: 'N/A',
+    secondaryFuelFeeder: 'N/A',
+    ssCombustionChamber: 'N/A',
+    image: '/product/Wood Pellet Burner.png',
+    modelPath: '/models/biomass-heater.glb',
+  },
+  {
+    id: 'GPB-02',
+    maxHeatCapacity: '2,00,000',
+    maxFuelConsumption: '48',
+    electricityConsumption: '1',
+    autoControlPanel: 'Standard',
+    autoAshRemoval: 'N/A',
+    autoIgnition: 'N/A',
+    secondaryFuelFeeder: 'N/A',
+    ssCombustionChamber: 'Available',
+    image: '/product/Wood Pellet Burner.png',
+    modelPath: '/models/biomass-heater.glb',
+  },
+  {
+    id: 'GPB-03',
+    maxHeatCapacity: '3,00,000',
+    maxFuelConsumption: '72',
+    electricityConsumption: '2',
+    autoControlPanel: 'Standard',
+    autoAshRemoval: 'N/A',
+    autoIgnition: 'N/A',
+    secondaryFuelFeeder: 'N/A',
+    ssCombustionChamber: 'Available',
+    image: '/product/Wood Pellet Burner.png',
+    modelPath: '/models/biomass-heater.glb',
+  },
+  {
+    id: 'GPB-04',
+    maxHeatCapacity: '4,00,000',
+    maxFuelConsumption: '96',
+    electricityConsumption: '2',
+    autoControlPanel: 'Standard',
+    autoAshRemoval: 'N/A',
+    autoIgnition: 'N/A',
+    secondaryFuelFeeder: 'N/A',
+    ssCombustionChamber: 'Available',
+    image: '/product/Wood Pellet Burner.png',
+    modelPath: '/models/biomass-heater.glb',
+  },
+  {
+    id: 'GPB-05',
+    maxHeatCapacity: '5,00,000',
+    maxFuelConsumption: '120',
+    electricityConsumption: '3',
+    autoControlPanel: 'Standard',
+    autoAshRemoval: 'Optional',
+    autoIgnition: 'Optional',
+    secondaryFuelFeeder: 'Optional',
+    ssCombustionChamber: 'Available',
+    image: '/product/Wood Pellet Burner.png',
+    modelPath: '/models/biomass-heater.glb',
+  },
+  {
+    id: 'GPB-06',
+    maxHeatCapacity: '6,00,000',
+    maxFuelConsumption: '143',
+    electricityConsumption: '3',
+    autoControlPanel: 'Standard',
+    autoAshRemoval: 'Optional',
+    autoIgnition: 'Optional',
+    secondaryFuelFeeder: 'Optional',
+    ssCombustionChamber: 'Available',
+    image: '/product/Wood Pellet Burner.png',
+    modelPath: '/models/biomass-heater.glb',
+  },
+  {
+    id: 'GPB-08',
+    maxHeatCapacity: '8,00,000',
+    maxFuelConsumption: '191',
+    electricityConsumption: '4',
+    autoControlPanel: 'Standard',
+    autoAshRemoval: 'Optional',
+    autoIgnition: 'Optional',
+    secondaryFuelFeeder: 'Optional',
+    ssCombustionChamber: 'Available',
+    image: '/product/Wood Pellet Burner.png',
+    modelPath: '/models/biomass-heater.glb',
+  },
+  {
+    id: 'GPB-10',
+    maxHeatCapacity: '10,00,000',
+    maxFuelConsumption: '239',
+    electricityConsumption: '5',
+    autoControlPanel: 'Standard',
+    autoAshRemoval: 'Optional',
+    autoIgnition: 'Optional',
+    secondaryFuelFeeder: 'Optional',
+    ssCombustionChamber: 'Available',
+    image: '/product/Wood Pellet Burner.png',
+    modelPath: '/models/biomass-heater.glb',
+  },
+  {
+    id: 'GPB-12',
+    maxHeatCapacity: '12,00,000',
+    maxFuelConsumption: '286',
+    electricityConsumption: '7',
+    autoControlPanel: 'Standard',
+    autoAshRemoval: 'Optional',
+    autoIgnition: 'Optional',
+    secondaryFuelFeeder: 'Optional',
+    ssCombustionChamber: 'Available',
+    image: '/product/Wood Pellet Burner.png',
+    modelPath: '/models/biomass-heater.glb',
+  },
+  {
+    id: 'GPB-15',
+    maxHeatCapacity: '15,00,000',
+    maxFuelConsumption: '357',
+    electricityConsumption: '10',
+    autoControlPanel: 'Standard',
+    autoAshRemoval: 'Optional',
+    autoIgnition: 'Optional',
+    secondaryFuelFeeder: 'Optional',
+    ssCombustionChamber: 'Available',
+    image: '/product/Wood Pellet Burner.png',
+    modelPath: '/models/biomass-heater.glb',
+  },
+];
