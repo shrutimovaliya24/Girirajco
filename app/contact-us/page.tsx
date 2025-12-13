@@ -112,13 +112,13 @@ export default function ContactUsPage() {
           {/* Title */}
           <div className={`text-center mb-4 sm:mb-5 md:mb-8 lg:mb-8 animate-on-scroll ${heroVisible ? 'animate-textAppear animated' : ''}`}>
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-              {t('contactUs.title')}
+              {String(t('contactUs.title'))}
             </h1>
             <div className="flex justify-center mb-2 sm:mb-2.5 md:mb-3">
               <div className="w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 h-0.5 sm:h-1 bg-yellow-400"></div>
             </div>
             <p className={`text-xs sm:text-sm md:text-sm lg:text-lg xl:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed animate-on-scroll ${heroVisible ? 'animate-textAppear animated stagger-1' : ''}`} style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-              {t('contactUs.description')}
+              {String(t('contactUs.description'))}
             </p>
           </div>
 
@@ -132,7 +132,7 @@ export default function ContactUsPage() {
                 onMouseEnter={(e) => e.currentTarget.style.borderColor = '#5FAA3F'}
                 onMouseLeave={(e) => e.currentTarget.style.borderColor = '#E5E7EB'}
               >
-                <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>{t('contactUs.contactInformation')}</h2>
+                <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>{String(t('contactUs.contactInformation'))}</h2>
                 
                 <div className="space-y-4 sm:space-y-5 md:space-y-6">
                   {/* Address */}
@@ -141,7 +141,7 @@ export default function ContactUsPage() {
                       <Icon name="location" className="w-5 h-5 sm:w-4.5 sm:h-4.5 md:w-4 md:h-4 lg:w-4.5 lg:h-4.5" style={{ filter: 'brightness(0) invert(1)' }} />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold text-xs sm:text-xs md:text-sm lg:text-base text-gray-900 mb-1.5 sm:mb-2 md:mb-2.5" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>{t('contactUs.address')}</h3>
+                      <h3 className="font-semibold text-xs sm:text-xs md:text-sm lg:text-base text-gray-900 mb-1.5 sm:mb-2 md:mb-2.5" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>{String(t('contactUs.address'))}</h3>
                       <a
                         href="https://maps.app.goo.gl/QNnjn1HHTybCD3oi6"
                         target="_blank"
@@ -151,7 +151,7 @@ export default function ContactUsPage() {
                       onMouseEnter={(e) => e.currentTarget.style.color = '#5FAA3F'}
                       onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
                       >
-                        {t('contactUs.addressContent')}
+                        {String(t('contactUs.addressContent'))}
                       </a>
                     </div>
                   </div>
@@ -162,7 +162,7 @@ export default function ContactUsPage() {
                       <Icon name="phone" className="w-5 h-5 sm:w-4.5 sm:h-4.5 md:w-4 md:h-4 lg:w-4.5 lg:h-4.5" style={{ filter: 'brightness(0) invert(1)' }} />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold text-xs sm:text-xs md:text-sm lg:text-base text-gray-900 mb-1.5 sm:mb-2" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>{t('contactUs.phone')}</h3>
+                      <h3 className="font-semibold text-xs sm:text-xs md:text-sm lg:text-base text-gray-900 mb-1.5 sm:mb-2" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>{String(t('contactUs.phone'))}</h3>
                       <div className="space-y-1.5 sm:space-y-2">
                         <a href="tel:+919825213536" className="text-xs sm:text-xs md:text-sm lg:text-base transition-colors block hover:underline" style={{ color: '#1A1A1A', fontFamily: 'var(--font-inter), Inter, sans-serif' }} onMouseEnter={(e) => e.currentTarget.style.color = '#5FAA3F'} onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}>
                           +91 9825213536
@@ -180,7 +180,7 @@ export default function ContactUsPage() {
                       <Icon name="mail" className="w-5 h-5 sm:w-4.5 sm:h-4.5 md:w-4 md:h-4 lg:w-4.5 lg:h-4.5" style={{ filter: 'brightness(0) invert(1)' }} />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold text-xs sm:text-xs md:text-sm lg:text-base text-gray-900 mb-1.5 sm:mb-2" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>{t('contactUs.email')}</h3>
+                      <h3 className="font-semibold text-xs sm:text-xs md:text-sm lg:text-base text-gray-900 mb-1.5 sm:mb-2" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>{String(t('contactUs.email'))}</h3>
                       <a href="mailto:info@girirajco.com" className="text-xs sm:text-xs md:text-sm lg:text-base transition-colors hover:underline" style={{ color: '#1A1A1A', fontFamily: 'var(--font-inter), Inter, sans-serif' }} onMouseEnter={(e) => e.currentTarget.style.color = '#5FAA3F'} onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}>
                         info@girirajco.com
                       </a>
@@ -198,7 +198,7 @@ export default function ContactUsPage() {
                 onMouseEnter={(e) => e.currentTarget.style.borderColor = '#5FAA3F'}
                 onMouseLeave={(e) => e.currentTarget.style.borderColor = '#E5E7EB'}
               >
-                <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>{t('contactUs.sendMessage')}</h2>
+                <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>{String(t('contactUs.sendMessage'))}</h2>
                 <Formik
                   initialValues={initialValues}
                   validationSchema={validationSchema}
@@ -209,7 +209,7 @@ export default function ContactUsPage() {
                       {/* Name Field */}
                       <div>
                         <label htmlFor="name" className="block text-sm sm:text-xs md:text-sm font-medium text-gray-700 mb-2 sm:mb-2" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                          {t('contactUs.name')} <span className="text-red-500">*</span>
+                          {String(t('contactUs.name'))} <span className="text-red-500">*</span>
                         </label>
                         <Field
                           type="text"
@@ -220,7 +220,7 @@ export default function ContactUsPage() {
                               ? 'border-red-500 focus:ring-red-500'
                               : 'border-gray-300 focus:ring-[#5FAA3F] focus:border-[#5FAA3F]'
                           }`}
-                          placeholder={t('contactUs.namePlaceholder')}
+                          placeholder={String(t('contactUs.namePlaceholder'))}
                           style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}
                         />
                         <ErrorMessage name="name">
@@ -231,7 +231,7 @@ export default function ContactUsPage() {
                       {/* Contact Field */}
                       <div>
                         <label htmlFor="contact" className="block text-sm sm:text-xs md:text-sm lg:text-base font-medium text-gray-700 mb-2 sm:mb-2" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                          {t('contactUs.contactNumber')} <span className="text-red-500">*</span>
+                          {String(t('contactUs.contactNumber'))} <span className="text-red-500">*</span>
                         </label>
                         <Field
                           type="tel"
@@ -243,7 +243,7 @@ export default function ContactUsPage() {
                               ? 'border-red-500 focus:ring-red-500'
                               : 'border-gray-300 focus:ring-[#5FAA3F] focus:border-[#5FAA3F]'
                           }`}
-                          placeholder={t('contactUs.contactPlaceholder')}
+                          placeholder={String(t('contactUs.contactPlaceholder'))}
                           style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}
                         />
                         <ErrorMessage name="contact">
@@ -254,7 +254,7 @@ export default function ContactUsPage() {
                       {/* Email Field */}
                       <div>
                         <label htmlFor="email" className="block text-sm sm:text-xs md:text-sm lg:text-base font-medium text-gray-700 mb-2 sm:mb-2" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                          {t('contactUs.email')} <span className="text-red-500">*</span>
+                          {String(t('contactUs.email'))} <span className="text-red-500">*</span>
                         </label>
                         <Field
                           type="email"
@@ -265,7 +265,7 @@ export default function ContactUsPage() {
                               ? 'border-red-500 focus:ring-red-500'
                               : 'border-gray-300 focus:ring-[#5FAA3F] focus:border-[#5FAA3F]'
                           }`}
-                          placeholder={t('contactUs.emailPlaceholder')}
+                          placeholder={String(t('contactUs.emailPlaceholder'))}
                           style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}
                         />
                         <ErrorMessage name="email">
@@ -276,7 +276,7 @@ export default function ContactUsPage() {
                       {/* Message Field */}
                       <div>
                         <label htmlFor="message" className="block text-sm sm:text-xs md:text-sm lg:text-base font-medium text-gray-700 mb-2 sm:mb-2" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                          {t('contactUs.message')} <span className="text-red-500">*</span>
+                          {String(t('contactUs.message'))} <span className="text-red-500">*</span>
                         </label>
                         <Field
                           as="textarea"
@@ -288,7 +288,7 @@ export default function ContactUsPage() {
                               ? 'border-red-500 focus:ring-red-500'
                               : 'border-gray-300 focus:ring-[#5FAA3F] focus:border-[#5FAA3F]'
                           }`}
-                          placeholder={t('contactUs.messagePlaceholder')}
+                          placeholder={String(t('contactUs.messagePlaceholder'))}
                           style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}
                         />
                         <ErrorMessage name="message">
@@ -307,11 +307,11 @@ export default function ContactUsPage() {
                         }}
                       >
                         {isSubmitting ? (
-                          t('contactUs.submitting')
+                          String(t('contactUs.submitting'))
                         ) : (
                           <>
                             <Icon name="send" className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" style={{ filter: 'brightness(0) invert(1)' }} />
-                            {t('contactUs.getInquiry')}
+                            {String(t('contactUs.getInquiry'))}
                           </>
                         )}
                       </button>
@@ -334,13 +334,13 @@ export default function ContactUsPage() {
               lineHeight: '1.2'
             }}
           >
-            {t('contactUs.findUsHere')}
+            {String(t('contactUs.findUsHere'))}
           </h2>
           <div className="flex justify-center mb-2 sm:mb-2.5">
             <div className="w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 h-0.5 sm:h-1 bg-yellow-400"></div>
           </div>
           <p className={`text-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-600 mb-4 sm:mb-5 md:mb-6 leading-relaxed animate-on-scroll ${mapVisible ? 'animate-textAppear animated stagger-1' : ''}`} style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-            {t('contactUs.findUsDescription')}
+            {String(t('contactUs.findUsDescription'))}
           </p>
         </div>
 
@@ -364,7 +364,7 @@ export default function ContactUsPage() {
                 Giriraj Industries
               </h3>
               <p className="text-xs text-gray-700 mb-2 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                {t('contactUs.addressContent')}
+                {String(t('contactUs.addressContent'))}
               </p>
               <div className="flex flex-col gap-1.5">
                 <a
@@ -374,7 +374,7 @@ export default function ContactUsPage() {
                   className="text-blue-600 text-xs hover:underline inline-flex items-center gap-1"
                   style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}
                 >
-                  {t('contactUs.viewLargerMap')}
+                  {String(t('contactUs.viewLargerMap'))}
                 </a>
                 <a
                   href="https://www.google.com/maps/dir/?api=1&destination=21.259478480466073,72.99968947523762"
@@ -383,7 +383,7 @@ export default function ContactUsPage() {
                   className="text-blue-600 text-xs hover:underline inline-flex items-center gap-1"
                   style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}
                 >
-                  {t('contactUs.directions')}
+                  {String(t('contactUs.directions'))}
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -404,7 +404,7 @@ export default function ContactUsPage() {
                 fontFamily: 'var(--font-poppins), Poppins, sans-serif'
               }}
             >
-              {t('contactUs.getDirection')}
+              {String(t('contactUs.getDirection'))}
             </a>
           </div>
         </div>

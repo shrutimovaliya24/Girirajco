@@ -98,76 +98,76 @@ export default function ProductsPage() {
 const products = [
   {
     id: 1,
-      name: t('products.product1Name'),
+      name: String(t('products.product1Name')),
     modelPath: '/models/biomass-heater.glb',
     image: '/product/Wood Pellet Burner.png',
-      overview: t('products.product1Overview'),
+      overview: String(t('products.product1Overview')),
     specifications: [
-        t('products.product1Spec1'),
-        t('products.product1Spec2'),
-        t('products.product1Spec3'),
-        t('products.product1Spec4'),
-        t('products.product1Spec5'),
+        String(t('products.product1Spec1')),
+        String(t('products.product1Spec2')),
+        String(t('products.product1Spec3')),
+        String(t('products.product1Spec4')),
+        String(t('products.product1Spec5')),
     ],
     icon: 'zap',
   },
   {
     id: 2,
-      name: t('products.product2Name'),
+      name: String(t('products.product2Name')),
     modelPath: '/models/biomass-heater.glb',
     image: '/product/Wood Pellet Stove.png',
-      overview: t('products.product2Overview'),
+      overview: String(t('products.product2Overview')),
     specifications: [
-        t('products.product2Spec1'),
-        t('products.product2Spec2'),
-        t('products.product2Spec3'),
-        t('products.product2Spec4'),
+        String(t('products.product2Spec1')),
+        String(t('products.product2Spec2')),
+        String(t('products.product2Spec3')),
+        String(t('products.product2Spec4')),
     ],
     icon: 'thermometer',
   },
   {
     id: 3,
-      name: t('products.product3Name'),
+      name: String(t('products.product3Name')),
     modelPath: '/models/biomass-heater.glb',
     image: '/product/Batch Fryer.png',
-      overview: t('products.product3Overview'),
+      overview: String(t('products.product3Overview')),
     specifications: [
-        t('products.product3Spec1'),
-        t('products.product3Spec2'),
-        t('products.product3Spec3'),
-        t('products.product3Spec4'),
-        t('products.product3Spec5'),
+        String(t('products.product3Spec1')),
+        String(t('products.product3Spec2')),
+        String(t('products.product3Spec3')),
+        String(t('products.product3Spec4')),
+        String(t('products.product3Spec5')),
     ],
     icon: 'package',
   },
   {
     id: 4,
-      name: t('products.product4Name'),
+      name: String(t('products.product4Name')),
     modelPath: '/models/biomass-heater.glb',
     image: '/product/Hot Air Generator.png',
-      overview: t('products.product4Overview'),
+      overview: String(t('products.product4Overview')),
     specifications: [
-        t('products.product4Spec1'),
-        t('products.product4Spec2'),
-        t('products.product4Spec3'),
-        t('products.product4Spec4'),
-        t('products.product4Spec5'),
-        t('products.product4Spec6'),
+        String(t('products.product4Spec1')),
+        String(t('products.product4Spec2')),
+        String(t('products.product4Spec3')),
+        String(t('products.product4Spec4')),
+        String(t('products.product4Spec5')),
+        String(t('products.product4Spec6')),
     ],
     icon: 'wind',
   },
   {
     id: 5,
-      name: t('products.product5Name'),
+      name: String(t('products.product5Name')),
     modelPath: '/models/biomass-heater.glb',
     image: '/product/Aluminium Melting Furnace.png',
-      overview: t('products.product5Overview'),
+      overview: String(t('products.product5Overview')),
     specifications: [
-        t('products.product5Spec1'),
-        t('products.product5Spec2'),
-        t('products.product5Spec3'),
-        t('products.product5Spec4'),
-        t('products.product5Spec5'),
+        String(t('products.product5Spec1')),
+        String(t('products.product5Spec2')),
+        String(t('products.product5Spec3')),
+        String(t('products.product5Spec4')),
+        String(t('products.product5Spec5')),
     ],
     icon: 'flame',
   },
@@ -186,13 +186,13 @@ const products = [
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-10 xl:px-12 2xl:px-16">
           <div className="text-center mb-1 sm:mb-1.5 md:mb-2">
             <h1 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3 animate-on-scroll ${heroVisible ? 'animate-textAppear animated' : ''}`} style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-              {t('products.title')}
+              {String(t('products.title'))}
             </h1>
             <div className="flex justify-center mb-2 sm:mb-2.5">
               <div className="w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 h-0.5 sm:h-1 bg-yellow-400"></div>
             </div>
             <p className={`text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed animate-on-scroll ${heroVisible ? 'animate-textAppear animated stagger-1' : ''}`} style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-              {t('products.description')}
+              {String(t('products.description'))}
             </p>
           </div>
         </div>
@@ -300,7 +300,7 @@ const products = [
             {/* Section Title */}
             <div className={`text-center mb-4 sm:mb-5 md:mb-6 lg:mb-8 animate-on-scroll ${faqVisible ? 'animate-textAppear animated' : ''}`}>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-                {t('products.frequentlyAskedQuestions')}
+                {String(t('products.frequentlyAskedQuestions'))}
               </h2>
               <div className="flex justify-center mb-2 sm:mb-2.5">
                 <div className="w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 h-0.5 sm:h-1 bg-yellow-400"></div>
@@ -322,7 +322,7 @@ const products = [
                       className="w-full p-3 sm:p-3.5 md:p-4 lg:p-4.5 text-left flex items-center justify-between gap-3 sm:gap-4 hover:bg-gray-50 transition-colors duration-200"
                     >
                       <h3 className="text-xs sm:text-xs md:text-sm lg:text-base font-semibold flex-1" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                        {t(`faq.question${faq.id}`)}
+                        {String(t(`faq.question${faq.id}`))}
                       </h3>
                       <div className="shrink-0">
                         {isOpen ? (
@@ -341,7 +341,7 @@ const products = [
                     >
                       <div className="px-3 sm:px-3.5 md:px-4 lg:px-4.5 pb-3 sm:pb-3.5 md:pb-4 lg:pb-4.5">
                         <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                          {t(`faq.answer${faq.id}`)}
+                          {String(t(`faq.answer${faq.id}`))}
                         </p>
                       </div>
                     </div>

@@ -96,76 +96,76 @@ export default function ProductDetailPage() {
   const products = [
     {
       id: 1,
-      name: t('products.product1Name'),
+      name: String(t('products.product1Name')),
       modelPath: '/models/biomass-heater.glb',
       image: '/product/Wood Pellet Burner.png',
-      overview: t('products.product1Overview'),
+      overview: String(t('products.product1Overview')),
       specifications: [
-        t('products.product1Spec1'),
-        t('products.product1Spec2'),
-        t('products.product1Spec3'),
-        t('products.product1Spec4'),
-        t('products.product1Spec5'),
+        String(t('products.product1Spec1')),
+        String(t('products.product1Spec2')),
+        String(t('products.product1Spec3')),
+        String(t('products.product1Spec4')),
+        String(t('products.product1Spec5')),
       ],
       icon: 'zap',
     },
     {
       id: 2,
-      name: t('products.product2Name'),
+      name: String(t('products.product2Name')),
       modelPath: '/models/biomass-heater.glb',
       image: '/product/Wood Pellet Stove.png',
-      overview: t('products.product2Overview'),
+      overview: String(t('products.product2Overview')),
       specifications: [
-        t('products.product2Spec1'),
-        t('products.product2Spec2'),
-        t('products.product2Spec3'),
-        t('products.product2Spec4'),
+        String(t('products.product2Spec1')),
+        String(t('products.product2Spec2')),
+        String(t('products.product2Spec3')),
+        String(t('products.product2Spec4')),
       ],
       icon: 'thermometer',
     },
     {
       id: 3,
-      name: t('products.product3Name'),
+      name: String(t('products.product3Name')),
       modelPath: '/models/biomass-heater.glb',
       image: '/product/Batch Fryer.png',
-      overview: t('products.product3Overview'),
+      overview: String(t('products.product3Overview')),
       specifications: [
-        t('products.product3Spec1'),
-        t('products.product3Spec2'),
-        t('products.product3Spec3'),
-        t('products.product3Spec4'),
-        t('products.product3Spec5'),
+        String(t('products.product3Spec1')),
+        String(t('products.product3Spec2')),
+        String(t('products.product3Spec3')),
+        String(t('products.product3Spec4')),
+        String(t('products.product3Spec5')),
       ],
       icon: 'package',
     },
     {
       id: 4,
-      name: t('products.product4Name'),
+      name: String(t('products.product4Name')),
       modelPath: '/models/biomass-heater.glb',
       image: '/product/Hot Air Generator.png',
-      overview: t('products.product4Overview'),
+      overview: String(t('products.product4Overview')),
       specifications: [
-        t('products.product4Spec1'),
-        t('products.product4Spec2'),
-        t('products.product4Spec3'),
-        t('products.product4Spec4'),
-        t('products.product4Spec5'),
-        t('products.product4Spec6'),
+        String(t('products.product4Spec1')),
+        String(t('products.product4Spec2')),
+        String(t('products.product4Spec3')),
+        String(t('products.product4Spec4')),
+        String(t('products.product4Spec5')),
+        String(t('products.product4Spec6')),
       ],
       icon: 'wind',
     },
     {
       id: 5,
-      name: t('products.product5Name'),
+      name: String(t('products.product5Name')),
       modelPath: '/models/biomass-heater.glb',
       image: '/product/Aluminium Melting Furnace.png',
-      overview: t('products.product5Overview'),
+      overview: String(t('products.product5Overview')),
       specifications: [
-        t('products.product5Spec1'),
-        t('products.product5Spec2'),
-        t('products.product5Spec3'),
-        t('products.product5Spec4'),
-        t('products.product5Spec5'),
+        String(t('products.product5Spec1')),
+        String(t('products.product5Spec2')),
+        String(t('products.product5Spec3')),
+        String(t('products.product5Spec4')),
+        String(t('products.product5Spec5')),
       ],
       icon: 'flame',
     },
@@ -245,9 +245,9 @@ export default function ProductDetailPage() {
                 {/* Model Selector Header */}
                 <div className="pt-2 sm:pt-3 md:pt-4 mb-2 sm:mb-3 md:mb-4">
                   <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-center mb-1 sm:mb-1.5" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                    {t('products.selectModel')}
+                    {String(t('products.selectModel'))}
                   </h3>
-                  <p className="text-xs sm:text-xs md:text-xs text-gray-500 text-center">{t('products.chooseModel')}</p>
+                  <p className="text-xs sm:text-xs md:text-xs text-gray-500 text-center">{String(t('products.chooseModel'))}</p>
                 </div>
                 
                 {/* Model Selector - Grid Layout */}
@@ -297,7 +297,7 @@ export default function ProductDetailPage() {
                 {/* Product Overview */}
                 <div className="mb-4 sm:mb-5 md:mb-6">
                   <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                    {t('products.productOverview')}
+                    {String(t('products.productOverview'))}
                   </h3>
                   <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
                     {product.overview}
@@ -307,7 +307,7 @@ export default function ProductDetailPage() {
                 {/* Specifications */}
                 <div>
                   <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                    {t('products.specifications')}
+                    {String(t('products.specifications'))}
                   </h3>
                   <ul className="space-y-2 sm:space-y-2.5 md:space-y-3 lg:space-y-4">
                     <li className="flex items-start gap-2 sm:gap-2.5 md:gap-3 lg:gap-4">
@@ -315,7 +315,7 @@ export default function ProductDetailPage() {
                         <div className="w-1.5 sm:w-2 md:w-2.5 lg:w-3 h-1.5 sm:h-2 md:h-2.5 lg:h-3 rounded-full bg-[#5FAA3F] animate-pulse"></div>
                       </div>
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('products.maxHeatCapacity')} {selectedModelData.maxHeatCapacity} kcal/hour
+                        {String(t('products.maxHeatCapacity'))} {selectedModelData.maxHeatCapacity} kcal/hour
                       </p>
                     </li>
                     <li className="flex items-start gap-2 sm:gap-2.5 md:gap-3 lg:gap-4">
@@ -323,7 +323,7 @@ export default function ProductDetailPage() {
                         <div className="w-1.5 sm:w-2 md:w-2.5 lg:w-3 h-1.5 sm:h-2 md:h-2.5 lg:h-3 rounded-full bg-[#5FAA3F]"></div>
                       </div>
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('products.maxFuelConsumption')} {selectedModelData.maxFuelConsumption} kg/hour
+                        {String(t('products.maxFuelConsumption'))} {selectedModelData.maxFuelConsumption} kg/hour
                       </p>
                     </li>
                     <li className="flex items-start gap-2 sm:gap-2.5 md:gap-3 lg:gap-4">
@@ -331,7 +331,7 @@ export default function ProductDetailPage() {
                         <div className="w-1.5 sm:w-2 md:w-2.5 lg:w-3 h-1.5 sm:h-2 md:h-2.5 lg:h-3 rounded-full bg-[#5FAA3F]"></div>
                       </div>
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('products.electricityConsumption')} {selectedModelData.electricityConsumption} HP
+                        {String(t('products.electricityConsumption'))} {selectedModelData.electricityConsumption} HP
                       </p>
                     </li>
                     <li className="flex items-start gap-2 sm:gap-2.5 md:gap-3 lg:gap-4">
@@ -339,7 +339,7 @@ export default function ProductDetailPage() {
                         <div className="w-1.5 sm:w-2 md:w-2.5 lg:w-3 h-1.5 sm:h-2 md:h-2.5 lg:h-3 rounded-full bg-[#5FAA3F]"></div>
                       </div>
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('products.autoControlPanel')} {selectedModelData.autoControlPanel}
+                        {String(t('products.autoControlPanel'))} {selectedModelData.autoControlPanel}
                       </p>
                     </li>
                     <li className="flex items-start gap-2 sm:gap-2.5 md:gap-3 lg:gap-4">
@@ -347,7 +347,7 @@ export default function ProductDetailPage() {
                         <div className="w-1.5 sm:w-2 md:w-2.5 lg:w-3 h-1.5 sm:h-2 md:h-2.5 lg:h-3 rounded-full bg-[#5FAA3F]"></div>
                       </div>
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('products.autoAshRemoval')} {selectedModelData.autoAshRemoval}
+                        {String(t('products.autoAshRemoval'))} {selectedModelData.autoAshRemoval}
                       </p>
                     </li>
                     <li className="flex items-start gap-2 sm:gap-2.5 md:gap-3 lg:gap-4">
@@ -355,7 +355,7 @@ export default function ProductDetailPage() {
                         <div className="w-1.5 sm:w-2 md:w-2.5 lg:w-3 h-1.5 sm:h-2 md:h-2.5 lg:h-3 rounded-full bg-[#5FAA3F]"></div>
                       </div>
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('products.autoIgnition')} {selectedModelData.autoIgnition}
+                        {String(t('products.autoIgnition'))} {selectedModelData.autoIgnition}
                       </p>
                     </li>
                     <li className="flex items-start gap-2 sm:gap-2.5 md:gap-3 lg:gap-4">
@@ -363,7 +363,7 @@ export default function ProductDetailPage() {
                         <div className="w-1.5 sm:w-2 md:w-2.5 lg:w-3 h-1.5 sm:h-2 md:h-2.5 lg:h-3 rounded-full bg-[#5FAA3F]"></div>
                       </div>
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('products.secondaryFuelFeeder')} {selectedModelData.secondaryFuelFeeder}
+                        {String(t('products.secondaryFuelFeeder'))} {selectedModelData.secondaryFuelFeeder}
                       </p>
                     </li>
                     <li className="flex items-start gap-2 sm:gap-2.5 md:gap-3 lg:gap-4">
@@ -371,7 +371,7 @@ export default function ProductDetailPage() {
                         <div className="w-1.5 sm:w-2 md:w-2.5 lg:w-3 h-1.5 sm:h-2 md:h-2.5 lg:h-3 rounded-full bg-[#5FAA3F]"></div>
                       </div>
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('products.ssCombustionChamber')} {selectedModelData.ssCombustionChamber}
+                        {String(t('products.ssCombustionChamber'))} {selectedModelData.ssCombustionChamber}
                       </p>
                     </li>
                   </ul>
@@ -408,7 +408,7 @@ export default function ProductDetailPage() {
                 {/* Product Overview */}
                 <div className="mb-5 sm:mb-6 md:mb-7">
                   <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                    {t('products.productOverview')}
+                    {String(t('products.productOverview'))}
                   </h3>
                   <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
                     {product.overview}
@@ -418,7 +418,7 @@ export default function ProductDetailPage() {
                 {/* Specifications */}
                 <div>
                   <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                    {t('products.specifications')}
+                    {String(t('products.specifications'))}
                   </h3>
                   <ul className="space-y-2 sm:space-y-2.5 md:space-y-3">
                     {product.specifications.map((spec, specIndex) => (

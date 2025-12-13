@@ -159,7 +159,7 @@ export default function FuelSavingsCalculator() {
     // If heat output is 15,00,000 (15 lakhs) or more, show contact message
     // This is above the largest GPB model (GPB-15: 15,00,000)
     if (heatOutput >= 1500000) {
-      return t('fuelCalculator.contactForCustomizedModel');
+      return String(t('fuelCalculator.contactForCustomizedModel'));
     }
     
     // Find the appropriate GPB model based on heat output
@@ -182,7 +182,7 @@ export default function FuelSavingsCalculator() {
       return null;
     }
     // If model is "Contact for customized model" or heat output >= 15,00,000, return null (display "-")
-    if (selectedModel === t('fuelCalculator.contactForCustomizedModel')) {
+    if (selectedModel === String(t('fuelCalculator.contactForCustomizedModel'))) {
       return null;
     }
     // Check if heat output is 15,00,000+ by calculating it
@@ -223,7 +223,7 @@ export default function FuelSavingsCalculator() {
     }
     
     // If model is "Contact for customized model", return 1
-    if (selectedModel === t('fuelCalculator.contactForCustomizedModel')) {
+    if (selectedModel === String(t('fuelCalculator.contactForCustomizedModel'))) {
       return 1;
     }
     
@@ -269,13 +269,13 @@ export default function FuelSavingsCalculator() {
         {/* Section Title */}
         <div ref={titleRef} className={`text-center mb-4 sm:mb-5 md:mb-8 lg:mb-8 animate-on-scroll ${titleVisible ? 'animate-textAppear animated' : ''}`}>
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-            {t('fuelCalculator.title')}
+            {String(t('fuelCalculator.title'))}
           </h2>
           <div className="flex justify-center mb-2 sm:mb-2.5">
             <div className="w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 h-0.5 sm:h-1 bg-yellow-400"></div>
           </div>
           <p className={`text-xs sm:text-sm md:text-sm lg:text-base xl:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed animate-on-scroll ${titleVisible ? 'animate-textAppear animated' : ''}`} style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-            {t('fuelCalculator.description')}
+            {String(t('fuelCalculator.description'))}
           </p>
         </div>
 
@@ -286,7 +286,7 @@ export default function FuelSavingsCalculator() {
             {/* Select Your Fuel */}
             <div ref={dropdownRef}>
               <label className="block text-sm sm:text-xs md:text-sm font-medium text-gray-900 mb-2 sm:mb-2" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                {t('fuelCalculator.selectFuel')}
+                {String(t('fuelCalculator.selectFuel'))}
               </label>
               <div className="relative">
                 <button
@@ -297,7 +297,7 @@ export default function FuelSavingsCalculator() {
                     fontFamily: 'var(--font-inter), Inter, sans-serif',
                   }}
                 >
-                  <span>{fuelOptions.find(f => f.value === selectedFuel)?.label || t('fuelCalculator.selectFuelPlaceholder')}</span>
+                  <span>{fuelOptions.find(f => f.value === selectedFuel)?.label || String(t('fuelCalculator.selectFuelPlaceholder'))}</span>
                   <Icon name="chevron-down" className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transition-transform duration-200 ${isDropdownOpen ? 'transform rotate-180' : ''}`} style={{ color: '#5FAA3F' }} />
                 </button>
                 {isDropdownOpen && (
@@ -330,7 +330,7 @@ export default function FuelSavingsCalculator() {
             {/* Current Fuel Rate */}
             <div>
               <label className="block text-sm sm:text-xs md:text-sm font-medium text-gray-900 mb-2 sm:mb-2" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                {t('fuelCalculator.currentFuelRate')}
+                {String(t('fuelCalculator.currentFuelRate'))}
               </label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-sm sm:text-xs md:text-sm text-gray-700 z-10" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>₹</span>
@@ -338,7 +338,7 @@ export default function FuelSavingsCalculator() {
                   type="number"
                   value={fuelRate}
                   onChange={(e) => setFuelRate(e.target.value)}
-                  placeholder={t('fuelCalculator.fuelPricePlaceholder')}
+                  placeholder={String(t('fuelCalculator.fuelPricePlaceholder'))}
                   className="w-full pl-8 pr-3 py-3 sm:pl-8 sm:pr-3 sm:py-2.5 md:pl-8 md:pr-4 md:py-3 bg-white border border-gray-300 rounded-lg text-sm sm:text-xs md:text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#5FAA3F] focus:border-[#5FAA3F] min-h-[44px]"
                   style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}
                 />
@@ -348,13 +348,13 @@ export default function FuelSavingsCalculator() {
             {/* Fuel Usage Per Hour */}
             <div>
               <label className="block text-sm sm:text-xs md:text-sm font-medium text-gray-900 mb-2 sm:mb-2" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                {t('fuelCalculator.fuelUsagePerHour')}
+                {String(t('fuelCalculator.fuelUsagePerHour'))}
               </label>
               <input
                 type="number"
                 value={fuelUsage}
                 onChange={(e) => setFuelUsage(e.target.value)}
-                placeholder={fuelUsagePlaceholders[selectedFuel] || t('fuelCalculator.fuelUsagePlaceholder')}
+                placeholder={fuelUsagePlaceholders[selectedFuel] || String(t('fuelCalculator.fuelUsagePlaceholder'))}
                 className="w-full px-3 py-3 sm:px-3 sm:py-2.5 md:px-4 md:py-3 bg-white border border-gray-300 rounded-lg text-sm sm:text-xs md:text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#5FAA3F] focus:border-[#5FAA3F] min-h-[44px]"
               />
             </div>
@@ -362,7 +362,7 @@ export default function FuelSavingsCalculator() {
             {/* Operating Hours Per Day */}
             <div>
               <label className="block text-sm sm:text-xs md:text-sm font-medium text-gray-900 mb-2 sm:mb-2" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                {t('fuelCalculator.operatingHoursPerDay')}
+                {String(t('fuelCalculator.operatingHoursPerDay'))}
               </label>
               <input
                 type="number"
@@ -377,7 +377,7 @@ export default function FuelSavingsCalculator() {
                     const numValue = parseFloat(value);
                     if (!isNaN(numValue)) {
                       if (numValue > 24) {
-                        setOperatingHoursError(t('fuelCalculator.operatingHoursError'));
+                        setOperatingHoursError(String(t('fuelCalculator.operatingHoursError')));
                       } else {
                         setOperatingHoursError('');
                       }
@@ -386,7 +386,7 @@ export default function FuelSavingsCalculator() {
                     }
                   }
                 }}
-                placeholder={t('fuelCalculator.operatingHoursPlaceholder')}
+                placeholder={String(t('fuelCalculator.operatingHoursPlaceholder'))}
                 min="0"
                 className={`w-full px-3 py-3 sm:px-3 sm:py-2.5 md:px-4 md:py-3 bg-white border rounded-lg text-sm sm:text-xs md:text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 min-h-[44px] ${
                   operatingHoursError 
@@ -411,7 +411,7 @@ export default function FuelSavingsCalculator() {
                 fontFamily: 'var(--font-poppins), Poppins, sans-serif'
               }}
             >
-                {t('fuelCalculator.calculateSavings')}
+                {String(t('fuelCalculator.calculateSavings'))}
             </button>
             </div>
           </div>
@@ -427,35 +427,35 @@ export default function FuelSavingsCalculator() {
                 </colgroup>
                 <thead>
                   <tr style={{ background: 'linear-gradient(90deg, #5FAA3F, #2E7D32)' }} className="text-white">
-                    <th className="px-4 py-3 text-left text-xs sm:text-sm font-semibold border-r-2 border-white/50">{t('fuelCalculator.fuel')}</th>
+                    <th className="px-4 py-3 text-left text-xs sm:text-sm font-semibold border-r-2 border-white/50">{String(t('fuelCalculator.fuel'))}</th>
                     <th className="px-4 py-3 text-center text-xs sm:text-sm font-semibold border-r-2 border-white/50">{selectedFuel}</th>
-                    <th className="px-4 py-3 text-center text-xs sm:text-sm font-semibold">{t('fuelCalculator.woodPellets')}</th>
+                    <th className="px-4 py-3 text-center text-xs sm:text-sm font-semibold">{String(t('fuelCalculator.woodPellets'))}</th>
                   </tr>
                 </thead>
                 <tbody style={{ backgroundColor: '#F5F5F5' }}>
                   {/* Calorific Value */}
                   <tr className="border-b border-green-200">
-                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{t('fuelCalculator.calorificValue')}</td>
+                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{String(t('fuelCalculator.calorificValue'))}</td>
                     <td className="px-4 py-3 text-center text-xs sm:text-sm text-gray-700 border-r-2" style={{ borderColor: '#5FAA3F' }}>
                       {fuelCalorificValues[selectedFuel] ? `${fuelCalorificValues[selectedFuel].value.toLocaleString()} (${fuelCalorificValues[selectedFuel].unit})` : '-'}
                     </td>
-                    <td className="px-4 py-3 text-center text-xs sm:text-sm text-gray-700">4100 {t('fuelCalculator.calorificValueUnit')}</td>
+                    <td className="px-4 py-3 text-center text-xs sm:text-sm text-gray-700">4100 {String(t('fuelCalculator.calorificValueUnit'))}</td>
                   </tr>
 
                   {/* Fuel Usage Per Hour */}
                   <tr className="border-b border-green-200">
-                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{t('fuelCalculator.fuelUsagePerHourTable')}</td>
+                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{String(t('fuelCalculator.fuelUsagePerHourTable'))}</td>
                     <td className="px-4 py-3 text-center text-xs sm:text-sm text-gray-700 border-r-2" style={{ borderColor: '#5FAA3F' }}>
-                      {fuelUsage ? `${fuelUsage} (${fuelUsageUnits[selectedFuel] || t('fuelCalculator.fuelUsageUnit')})` : `- (${fuelUsageUnits[selectedFuel] || t('fuelCalculator.fuelUsageUnit')})`}
+                      {fuelUsage ? `${fuelUsage} (${fuelUsageUnits[selectedFuel] || String(t('fuelCalculator.fuelUsageUnit'))})` : `- (${fuelUsageUnits[selectedFuel] || String(t('fuelCalculator.fuelUsageUnit'))})`}
                     </td>
                     <td className="px-4 py-3 text-center text-xs sm:text-sm text-gray-700">
-                      {woodPelletsUsage !== null ? `${woodPelletsUsage.toFixed(2)} ${t('fuelCalculator.fuelUsageUnit')}` : `- ${t('fuelCalculator.fuelUsageUnit')}`}
+                      {woodPelletsUsage !== null ? `${woodPelletsUsage.toFixed(2)} ${String(t('fuelCalculator.fuelUsageUnit'))}` : `- ${String(t('fuelCalculator.fuelUsageUnit'))}`}
                     </td>
                   </tr>
 
                   {/* Fuel Cost Per Hour */}
                   <tr className="border-b border-green-200">
-                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{t('fuelCalculator.fuelCostPerHour')}</td>
+                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{String(t('fuelCalculator.fuelCostPerHour'))}</td>
                     <td className="px-4 py-3 text-center text-xs sm:text-sm text-gray-700 border-r-2" style={{ borderColor: '#5FAA3F' }}>
                       {fuelCostPerHour !== null ? `₹ ${fuelCostPerHour.toLocaleString()}` : '₹'}
                     </td>
@@ -466,7 +466,7 @@ export default function FuelSavingsCalculator() {
 
                   {/* Fuel Cost Saving Per Hour */}
                   <tr className="border-b border-green-200">
-                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{t('fuelCalculator.fuelCostSavingPerHour')}</td>
+                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{String(t('fuelCalculator.fuelCostSavingPerHour'))}</td>
                     <td className="px-4 py-3 text-center text-xs sm:text-sm text-gray-700" colSpan={2}>
                       {fuelCostSavingPerHour !== null ? `₹ ${fuelCostSavingPerHour.toFixed(2)}` : '₹ -'}
                     </td>
@@ -474,7 +474,7 @@ export default function FuelSavingsCalculator() {
 
                   {/* Fuel Cost Saving Per Month */}
                   <tr className="border-b border-green-200">
-                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{t('fuelCalculator.fuelCostSavingPerMonth')}</td>
+                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{String(t('fuelCalculator.fuelCostSavingPerMonth'))}</td>
                     <td className="px-4 py-3 text-center text-xs sm:text-sm text-gray-700" colSpan={2}>
                       {fuelCostSavingPerMonth !== null ? `₹ ${fuelCostSavingPerMonth.toFixed(2)}` : '₹ -'}
                     </td>
@@ -482,7 +482,7 @@ export default function FuelSavingsCalculator() {
 
                   {/* Fuel Cost Saving Per Year */}
                   <tr className="border-b border-green-200">
-                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{t('fuelCalculator.fuelCostSavingPerYear')}</td>
+                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{String(t('fuelCalculator.fuelCostSavingPerYear'))}</td>
                     <td className="px-4 py-3 text-center text-xs sm:text-sm text-gray-700" colSpan={2}>
                       {fuelCostSavingPerYear !== null ? `₹ ${fuelCostSavingPerYear.toFixed(2)}` : '₹ -'}
                     </td>
@@ -490,7 +490,7 @@ export default function FuelSavingsCalculator() {
 
                   {/* Model */}
                   <tr className="border-b border-green-200">
-                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{t('fuelCalculator.model')}</td>
+                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{String(t('fuelCalculator.model'))}</td>
                     <td className="px-4 py-3 text-center text-xs sm:text-sm text-gray-700" colSpan={2}>
                       {selectedModel || '-'}
                     </td>
@@ -498,7 +498,7 @@ export default function FuelSavingsCalculator() {
 
                   {/* Max Heat Output */}
                   <tr>
-                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{t('fuelCalculator.maxHeatOutput')}</td>
+                    <td className="px-4 py-3 text-xs sm:text-sm font-medium text-gray-900 border-r-2" style={{ borderColor: '#5FAA3F' }}>{String(t('fuelCalculator.maxHeatOutput'))}</td>
                     <td className="px-4 py-3 text-center text-xs sm:text-sm text-gray-700" colSpan={2}>
                       {maxHeatCapacity || '-'}
                     </td>
@@ -521,11 +521,11 @@ export default function FuelSavingsCalculator() {
                     fontFamily: 'var(--font-poppins), Poppins, sans-serif',
                     textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)'
                   }}>
-                    <span style={{ color: '#FFD700', fontWeight: 'bold' }}>{t('fuelCalculator.congratulations')}</span> {t('fuelCalculator.recoverCostMessage')} {selectedModel === t('fuelCalculator.contactForCustomizedModel') ? (
-                      <span style={{ color: '#FFD700', fontWeight: 'bold' }}>{t('fuelCalculator.fewMonths')}</span>
+                    <span style={{ color: '#FFD700', fontWeight: 'bold' }}>{String(t('fuelCalculator.congratulations'))}</span> {String(t('fuelCalculator.recoverCostMessage'))} {selectedModel === String(t('fuelCalculator.contactForCustomizedModel')) ? (
+                      <span style={{ color: '#FFD700', fontWeight: 'bold' }}>{String(t('fuelCalculator.fewMonths'))}</span>
                     ) : (
                       <>
-                        <span style={{ color: '#FFD700', fontWeight: 'bold' }}>{paybackMonths}</span> {t('fuelCalculator.months')}
+                        <span style={{ color: '#FFD700', fontWeight: 'bold' }}>{paybackMonths}</span> {String(t('fuelCalculator.months'))}
                       </>
                     )}.
                   </p>

@@ -8,12 +8,12 @@ import { useTranslation } from '../hooks/useTranslation';
 export default function Footer() {
   const { t } = useTranslation();
   const navLinks = [
-    { href: '/', label: t('header.home') },
-    { href: '/about-us', label: t('header.aboutUs') },
-    { href: '/products', label: t('header.products') },
-    { href: '/gallery', label: t('header.gallery') },
-    { href: '/blog', label: t('header.blog') },
-    { href: '/contact-us', label: t('header.contactUs') },
+    { href: '/', label: String(t('header.home')) },
+    { href: '/about-us', label: String(t('header.aboutUs')) },
+    { href: '/products', label: String(t('header.products')) },
+    { href: '/gallery', label: String(t('header.gallery')) },
+    { href: '/blog', label: String(t('header.blog')) },
+    { href: '/contact-us', label: String(t('header.contactUs')) },
   ];
 
   return (
@@ -25,10 +25,10 @@ export default function Footer() {
           {/* About */}
           <div className="space-y-1 sm:space-y-1.5">
             <h3 className="text-sm sm:text-sm md:text-sm lg:text-base font-bold uppercase tracking-wide mb-2 sm:mb-2.5 md:mb-2 pb-1.5 border-b border-dashed border-gray-500 whitespace-nowrap" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-              {t('footer.aboutUs')}
+              {String(t('footer.aboutUs'))}
             </h3>
             <p className="text-sm sm:text-xs md:text-sm leading-relaxed text-gray-300">
-              {t('footer.aboutDescription')}
+              {String(t('footer.aboutDescription'))}
             </p>
 
             {/* Social icons */}
@@ -79,7 +79,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div className="space-y-1 sm:space-y-1.5">
             <h3 className="text-sm sm:text-sm md:text-sm lg:text-base font-bold uppercase tracking-wide mb-2 sm:mb-2.5 md:mb-2 pb-1.5 border-b border-dashed border-gray-500 whitespace-nowrap" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-              {t('footer.quickLink')}
+              {String(t('footer.quickLink'))}
             </h3>
             <ul className="space-y-1">
               {navLinks.map((link) => (
@@ -95,7 +95,7 @@ export default function Footer() {
           {/* Company Policy */}
           <div className="space-y-1 sm:space-y-1.5">
             <h3 className="text-sm sm:text-sm md:text-sm lg:text-base font-bold uppercase tracking-wide mb-2 sm:mb-2.5 md:mb-2 pb-1.5 border-b border-dashed border-gray-500 whitespace-nowrap" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-              {t('footer.companyPolicy')}
+              {String(t('footer.companyPolicy'))}
             </h3>
             <ul className="space-y-1">
               <li>
@@ -108,7 +108,7 @@ export default function Footer() {
                   onMouseEnter={(e) => e.currentTarget.style.color = '#5FAA3F'} 
                   onMouseLeave={(e) => e.currentTarget.style.color = '#D1D5DB'}
                 >
-                  {t('footer.qualityPolicy')}
+                  {String(t('footer.qualityPolicy'))}
                 </a>
               </li>
               <li>
@@ -121,7 +121,7 @@ export default function Footer() {
                   onMouseEnter={(e) => e.currentTarget.style.color = '#5FAA3F'} 
                   onMouseLeave={(e) => e.currentTarget.style.color = '#D1D5DB'}
                 >
-                  {t('footer.sustainabilityPolicy')}
+                  {String(t('footer.sustainabilityPolicy'))}
                 </a>
               </li>
               <li>
@@ -134,7 +134,7 @@ export default function Footer() {
                   onMouseEnter={(e) => e.currentTarget.style.color = '#5FAA3F'} 
                   onMouseLeave={(e) => e.currentTarget.style.color = '#D1D5DB'}
                 >
-                  {t('footer.hsePolicy')}
+                  {String(t('footer.hsePolicy'))}
                 </a>
               </li>
               <li>
@@ -147,7 +147,7 @@ export default function Footer() {
                   onMouseEnter={(e) => e.currentTarget.style.color = '#5FAA3F'} 
                   onMouseLeave={(e) => e.currentTarget.style.color = '#D1D5DB'}
                 >
-                  {t('footer.termsAndConditions')}
+                  {String(t('footer.termsAndConditions'))}
                 </a>
               </li>
             </ul>
@@ -156,7 +156,7 @@ export default function Footer() {
           {/* Contact */}
           <div className="space-y-1 sm:space-y-1.5">
             <h3 className="text-sm sm:text-sm md:text-sm lg:text-base font-bold uppercase tracking-wide mb-2 sm:mb-2.5 md:mb-2 pb-1.5 border-b border-dashed border-gray-500 whitespace-nowrap" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-              {t('footer.contactUs')}
+              {String(t('footer.contactUs'))}
             </h3>
 
             <ul className="space-y-1.5">
@@ -186,7 +186,7 @@ export default function Footer() {
                     onMouseEnter={(e) => e.currentTarget.style.color = '#5FAA3F'}
                     onMouseLeave={(e) => e.currentTarget.style.color = '#D1D5DB'}
                   >
-                    {t('footer.addressContent')}
+                    {String(t('footer.addressContent'))}
                   </a>
                 </div>
               </li>
@@ -206,7 +206,7 @@ export default function Footer() {
         <div className="border-t border-gray-700/50 mt-6 sm:mt-8 pt-4 sm:pt-5">
           <div className="flex justify-center items-center">
             <p className="text-gray-400 text-xs sm:text-sm md:text-sm lg:text-base text-center" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-              © 2025 <span className="font-semibold" style={{ color: '#5FAA3F' }}>Giriraj Industries</span>. {t('footer.allRightsReserved')}
+              © 2025 <span className="font-semibold" style={{ color: '#5FAA3F' }}>Giriraj Industries</span>. {String(t('footer.allRightsReserved'))}
             </p>
           </div>
         </div>

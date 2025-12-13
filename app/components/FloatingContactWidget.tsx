@@ -43,7 +43,7 @@ export default function FloatingContactWidget() {
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
           >
             <Icon name="whatsapp" className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 shrink-0" style={{ color: '#5FAA3F' }} />
-            <span className="text-[10px] sm:text-xs md:text-sm text-gray-700 font-medium">{t('floatingWidget.whatsapp')}</span>
+            <span className="text-[10px] sm:text-xs md:text-sm text-gray-700 font-medium">{String(t('floatingWidget.whatsapp'))}</span>
           </button>
           <button
             onClick={handleCallback}
@@ -53,7 +53,7 @@ export default function FloatingContactWidget() {
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
           >
             <Icon name="phone" className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 shrink-0" style={{ color: '#5FAA3F' }} />
-            <span className="text-[10px] sm:text-xs md:text-sm text-gray-700 font-medium">{t('floatingWidget.contact')}</span>
+            <span className="text-[10px] sm:text-xs md:text-sm text-gray-700 font-medium">{String(t('floatingWidget.contact'))}</span>
           </button>
         </div>
       </div>

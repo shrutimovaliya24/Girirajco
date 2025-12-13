@@ -57,13 +57,13 @@ export default function BlogPage() {
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-10">
           <div className="text-center mb-1 sm:mb-1.5 md:mb-2">
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-              {t('blog.title')}
+              {String(t('blog.title'))}
             </h1>
             <div className="flex justify-center mb-2 sm:mb-2.5">
               <div className="w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 h-0.5 sm:h-1 bg-yellow-400"></div>
             </div>
             <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-              {t('blog.description')}
+              {String(t('blog.description'))}
             </p>
           </div>
         </div>
@@ -131,12 +131,12 @@ export default function BlogPage() {
                     onMouseEnter={(e) => e.currentTarget.style.color = '#5FAA3F'}
                     onMouseLeave={(e) => e.currentTarget.style.color = '#1A1A1A'}
                   >
-                    {t(`blog.blog${post.id}Title`)}
+                    {String(t(`blog.blog${post.id}Title`))}
                   </h2>
 
                   {/* Excerpt */}
                   <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-600 leading-relaxed mb-3 sm:mb-4 line-clamp-3" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                    {t(`blog.blog${post.id}Excerpt`)}
+                    {String(t(`blog.blog${post.id}Excerpt`))}
                   </p>
 
                   {/* Read More Link */}
@@ -154,7 +154,7 @@ export default function BlogPage() {
                       if (icon) icon.style.color = '#5FAA3F';
                     }}
                   >
-                    <span>{t('blog.readMore')}</span>
+                    <span>{String(t('blog.readMore'))}</span>
                     <Icon name="arrow-right" className="w-3 h-3 sm:w-4 sm:h-4 group-hover/link:translate-x-1 transition-transform duration-300" style={{ color: '#5FAA3F' }} />
                   </Link>
                 </div>
