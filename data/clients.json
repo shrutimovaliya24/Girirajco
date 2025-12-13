@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "name": "Zapier",
+    "logo": "/clients/zapier.png"
+  },
+  {
+    "id": 2,
+    "name": "Spotify",
+    "logo": "/clients/spotify.png"
+  },
+  {
+    "id": 3,
+    "name": "Zoom",
+    "logo": "/clients/zoom.png"
+  },
+  {
+    "id": 4,
+    "name": "Amazon",
+    "logo": "/clients/amazon.png"
+  },
+  {
+    "id": 5,
+    "name": "Adobe",
+    "logo": "/clients/adobe.png"
+  },
+  {
+    "id": 6,
+    "name": "Netflix",
+    "logo": "/clients/netflix.png"
+  },
+  {
+    "id": 7,
+    "name": "Google",
+    "logo": "/clients/google.png"
+  },
+  {
+    "id": 8,
+    "name": "GitLab",
+    "logo": "/clients/gitlab.png"
+  },
+  {
+    "id": 9,
+    "name": "Notion",
+    "logo": "/clients/notion.png"
+  }
+]
+

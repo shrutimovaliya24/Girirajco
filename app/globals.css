@@ -2,25 +2,159 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --foreground: #1A1A1A;
+  
+  /* Brand Colors from Logo */
+  --primary-green: #5FAA3F;
+  --secondary-green: #2E7D32;
+  --orange-flame: #FF7A00;
+  --yellow-flame: #FFC837;
+  
+  /* Neutral UI Colors */
+  --dark-text: #1A1A1A;
+  --light-grey: #F5F5F5;
+  --mid-grey: #D9D9D9;
+  --white: #FFFFFF;
+  
+  /* Legacy support */
+  --logo-orange: #FF7A00;
+  --logo-orange-dark: #FF7A00;
+  --logo-green: #5FAA3F;
+  --logo-green-dark: #2E7D32;
+  
+  /* Font Variables */
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-poppins);
   --font-mono: var(--font-geist-mono);
+
+  /* Responsive Breakpoints */
+  /* Mobile: Small (320px+), Medium (375px+), Large (425px+) */
+  /* Tablet: Small (640px+), Medium (768px+), Large (1024px+) */
+  /* Desktop: Medium (1280px+), Large (1536px+), Full Large (1920px+) */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+body {
+  background: var(--white);
+  color: var(--dark-text);
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-weight: 700;
+  /* Color removed - set individually on each heading for brand consistency */
+}
+
+/* Simple Scroll-triggered Text Animation */
+@keyframes textAppear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Simple Animation Class - GPU accelerated */
+.animate-textAppear {
+  animation: textAppear 0.6s ease-out forwards;
+  will-change: opacity;
 }
+
+/* Slide In From Left Animation - GPU accelerated */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide In From Left Animation Class - GPU optimized */
+.animate-slideInFromLeft {
+  animation: slideInFromLeft 0.6s ease-out forwards;
+  will-change: opacity, transform;
+}
+
+/* Initial hidden state - GPU optimized */
+.animate-on-scroll {
+    opacity: 0;
+    will-change: opacity;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    will-change: auto; /* Remove will-change after animation */
+}
+
+/* Stagger delay utilities */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+.stagger-7 { animation-delay: 0.7s; }
+.stagger-8 { animation-delay: 0.8s; }
+
+/* Brand Color Utilities */
+.text-brand-green {
+  color: var(--primary-green);
+}
+
+.text-brand-orange {
+  color: var(--orange-flame);
+}
+
+.bg-brand-green {
+  background-color: var(--primary-green);
+}
+
+.bg-brand-orange {
+  background-color: var(--orange-flame);
+}
+
+.bg-gradient-green {
+  background: linear-gradient(90deg, #5FAA3F, #2E7D32);
+}
+
+.bg-gradient-orange {
+  background: linear-gradient(90deg, #FF7A00, #FFC837);
+}
+
+/* Legacy support */
+.text-logo-orange {
+  color: var(--orange-flame);
+}
+
+.text-logo-green {
+  color: var(--primary-green);
+}
+
+.bg-logo-orange {
+  background-color: var(--orange-flame);
+}
+
+.bg-logo-green {
+  background-color: var(--primary-green);
+}
+
+.hover\:text-logo-orange:hover {
+  color: var(--orange-flame);
+}
+
+.hover\:bg-logo-orange:hover {
+  background-color: var(--orange-flame);
+}
+
+.video-container {
+  border: none; 
+  box-shadow: none;
+}
+

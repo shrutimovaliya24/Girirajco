@@ -1,0 +1,113 @@
+[
+  {
+    "id": "GPB-1",
+    "capacityKcal": "1,00,000",
+    "capacityKW": "116",
+    "fuelRate": "25",
+    "power": "1 HP (0.75 KW)",
+    "combustionEfficiency": "Up to 92%",
+    "material": "MS / SS with ceramic insulation",
+    "controlOptions": "Digital / PLC automation",
+    "fuelOptions": "Biomass pellets / loose biomass"
+  },
+  {
+    "id": "GPB-2",
+    "capacityKcal": "2,00,000",
+    "capacityKW": "232",
+    "fuelRate": "50",
+    "power": "1.5 HP (1.1 KW)",
+    "combustionEfficiency": "Up to 92%",
+    "material": "MS / SS with ceramic insulation",
+    "controlOptions": "Digital / PLC automation",
+    "fuelOptions": "Biomass pellets / loose biomass"
+  },
+  {
+    "id": "GPB-3",
+    "capacityKcal": "3,00,000",
+    "capacityKW": "349",
+    "fuelRate": "75",
+    "power": "2 HP (1.5 KW)",
+    "combustionEfficiency": "Up to 92%",
+    "material": "MS / SS with ceramic insulation",
+    "controlOptions": "Digital / PLC automation",
+    "fuelOptions": "Biomass pellets / loose biomass"
+  },
+  {
+    "id": "GPB-4",
+    "capacityKcal": "4,00,000",
+    "capacityKW": "465",
+    "fuelRate": "100",
+    "power": "2 HP (1.5 KW)",
+    "combustionEfficiency": "Up to 92%",
+    "material": "MS / SS with ceramic insulation",
+    "controlOptions": "Digital / PLC automation",
+    "fuelOptions": "Biomass pellets / loose biomass"
+  },
+  {
+    "id": "GPB-5",
+    "capacityKcal": "5,00,000",
+    "capacityKW": "581",
+    "fuelRate": "125",
+    "power": "3 HP (2.2 KW)",
+    "combustionEfficiency": "Up to 92%",
+    "material": "MS / SS with ceramic insulation",
+    "controlOptions": "Digital / PLC automation",
+    "fuelOptions": "Biomass pellets / loose biomass"
+  },
+  {
+    "id": "GPB-6",
+    "capacityKcal": "6,00,000",
+    "capacityKW": "698",
+    "fuelRate": "150",
+    "power": "3 HP (2.2 KW)",
+    "combustionEfficiency": "Up to 92%",
+    "material": "MS / SS with ceramic insulation",
+    "controlOptions": "Digital / PLC automation",
+    "fuelOptions": "Biomass pellets / loose biomass"
+  },
+  {
+    "id": "GPB-8",
+    "capacityKcal": "8,00,000",
+    "capacityKW": "930",
+    "fuelRate": "200",
+    "power": "4 HP (3 KW)",
+    "combustionEfficiency": "Up to 92%",
+    "material": "MS / SS with ceramic insulation",
+    "controlOptions": "Digital / PLC automation",
+    "fuelOptions": "Biomass pellets / loose biomass"
+  },
+  {
+    "id": "GPB-10",
+    "capacityKcal": "10,00,000",
+    "capacityKW": "1163",
+    "fuelRate": "250",
+    "power": "5 HP (3.7 KW)",
+    "combustionEfficiency": "Up to 92%",
+    "material": "MS / SS with ceramic insulation",
+    "controlOptions": "Digital / PLC automation",
+    "fuelOptions": "Biomass pellets / loose biomass"
+  },
+  {
+    "id": "GPB-12",
+    "capacityKcal": "12,00,000",
+    "capacityKW": "1395",
+    "fuelRate": "300",
+    "power": "5 HP (3.7 KW)",
+    "combustionEfficiency": "Up to 92%",
+    "material": "MS / SS with ceramic insulation",
+    "controlOptions": "Digital / PLC automation",
+    "fuelOptions": "Biomass pellets / loose biomass"
+  },
+  {
+    "id": "GPB-15",
+    "capacityKcal": "15,00,000",
+    "capacityKW": "1744",
+    "fuelRate": "375",
+    "power": "7.5 HP (5.5 KW)",
+    "combustionEfficiency": "Up to 92%",
+    "material": "MS / SS with ceramic insulation",
+    "controlOptions": "Digital / PLC automation",
+    "fuelOptions": "Biomass pellets / loose biomass"
+  }
+]
+
