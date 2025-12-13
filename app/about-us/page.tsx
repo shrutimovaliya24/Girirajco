@@ -26,53 +26,53 @@ export default function AboutUsPage() {
   const [tableRowsVisible, setTableRowsVisible] = useState<boolean[]>([]);
 
   const whyBiomassPoints = [
-    t('aboutUs.whyBiomassPoint1'),
-    t('aboutUs.whyBiomassPoint2'),
-    t('aboutUs.whyBiomassPoint3'),
-    t('aboutUs.whyBiomassPoint4'),
-    t('aboutUs.whyBiomassPoint5'),
-    t('aboutUs.whyBiomassPoint6'),
-    t('aboutUs.whyBiomassPoint7'),
+    String(t('aboutUs.whyBiomassPoint1')),
+    String(t('aboutUs.whyBiomassPoint2')),
+    String(t('aboutUs.whyBiomassPoint3')),
+    String(t('aboutUs.whyBiomassPoint4')),
+    String(t('aboutUs.whyBiomassPoint5')),
+    String(t('aboutUs.whyBiomassPoint6')),
+    String(t('aboutUs.whyBiomassPoint7')),
   ];
 
   const comparisonData = [
     {
-      parameter: t('aboutUs.calorificValueTable'),
+      parameter: String(t('aboutUs.calorificValueTable')),
       pellet: '4200',
       lpg: '12000',
       diesel: '11000',
       ldo: '10200',
     },
     {
-      parameter: t('aboutUs.equivalentPelletConsumption'),
+      parameter: String(t('aboutUs.equivalentPelletConsumption')),
       pellet: '1',
       lpg: '2.86',
       diesel: '2.62',
       ldo: '2.42',
     },
     {
-      parameter: t('aboutUs.rate'),
+      parameter: String(t('aboutUs.rate')),
       pellet: '15',
       lpg: '88',
       diesel: '91',
       ldo: '65',
     },
     {
-      parameter: t('aboutUs.costOfPellet'),
+      parameter: String(t('aboutUs.costOfPellet')),
       pellet: '15',
       lpg: '43',
       diesel: '40',
       ldo: '37',
     },
     {
-      parameter: t('aboutUs.tentativeSavingsRs'),
+      parameter: String(t('aboutUs.tentativeSavingsRs')),
       pellet: '-',
       lpg: '45',
       diesel: '51',
       ldo: '29',
     },
     {
-      parameter: t('aboutUs.tentativeSavingsPercent'),
+      parameter: String(t('aboutUs.tentativeSavingsPercent')),
       pellet: '-',
       lpg: '51%',
       diesel: '56%',
@@ -143,13 +143,13 @@ export default function AboutUsPage() {
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-10">
           <div className="text-center mb-1 sm:mb-1.5 md:mb-2">
             <h1 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3 animate-on-scroll ${heroVisible ? 'animate-textAppear animated' : ''}`} style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-              {t('aboutUs.title')}
+              {String(t('aboutUs.title'))}
             </h1>
             <div className="flex justify-center mb-2 sm:mb-2.5">
               <div className="w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 h-0.5 sm:h-1 bg-yellow-400"></div>
             </div>
             <p className={`text-xs sm:text-sm md:text-sm lg:text-base xl:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed animate-on-scroll ${heroVisible ? 'animate-textAppear animated stagger-1' : ''}`} style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-              {t('aboutUs.heroDescription')}
+              {String(t('aboutUs.heroDescription'))}
             </p>
           </div>
         </div>
@@ -168,10 +168,10 @@ export default function AboutUsPage() {
             >
               <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                 <Icon name="sprout" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9" style={{ color: '#5FAA3F' }} />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>{t('aboutUs.mission')}</h2>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>{String(t('aboutUs.mission'))}</h2>
               </div>
               <p className="text-xs sm:text-sm md:text-sm lg:text-base text-gray-700 leading-relaxed">
-                "{t('aboutUs.missionText')}"
+                "{String(t('aboutUs.missionText'))}"
               </p>
             </div>
 
@@ -184,10 +184,10 @@ export default function AboutUsPage() {
             >
               <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                 <Icon name="globe" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9" style={{ color: '#5FAA3F' }} />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>{t('aboutUs.vision')}</h2>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>{String(t('aboutUs.vision'))}</h2>
               </div>
               <p className="text-xs sm:text-sm md:text-sm lg:text-base text-gray-700 leading-relaxed">
-                "{t('aboutUs.visionText')}"
+                "{String(t('aboutUs.visionText'))}"
               </p>
             </div>
 
@@ -200,10 +200,10 @@ export default function AboutUsPage() {
             >
               <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                 <Icon name="target" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9" style={{ color: '#5FAA3F' }} />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>{t('aboutUs.strategicObjective')}</h2>
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>{String(t('aboutUs.strategicObjective'))}</h2>
               </div>
               <p className="text-xs sm:text-sm md:text-sm lg:text-base text-gray-700 leading-relaxed">
-                "{t('aboutUs.strategicObjectiveText')}"
+                "{String(t('aboutUs.strategicObjectiveText'))}"
               </p>
             </div>
           </div>
@@ -216,11 +216,11 @@ export default function AboutUsPage() {
           <div className="max-w-4xl mx-auto">
             <div className={`bg-white rounded-xl p-4 sm:p-5 md:p-6 lg:p-7 border border-gray-200 animate-on-scroll ${aboutDescVisible ? 'animate-textAppear animated' : ''}`}>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-                {t('aboutUs.title')}
+                {String(t('aboutUs.title'))}
               </h2>
               <div className="w-12 sm:w-16 md:w-20 h-0.5 sm:h-1 bg-yellow-400 mb-3 sm:mb-4 md:mb-5"></div>
               <p className="text-xs sm:text-sm md:text-sm lg:text-base text-gray-700 leading-relaxed">
-                {t('aboutUs.fullContent')}
+                {String(t('aboutUs.fullContent'))}
               </p>
             </div>
           </div>
@@ -237,7 +237,7 @@ export default function AboutUsPage() {
             {/* Section Title */}
             <div className={`text-center mb-4 sm:mb-5 md:mb-6 lg:mb-8 animate-on-scroll ${whyBiomassVisible ? 'animate-textAppear animated' : ''}`}>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-                {t('aboutUs.whyBiomassTitle')}
+                {String(t('aboutUs.whyBiomassTitle'))}
               </h2>
               <div className="flex justify-center mb-2 sm:mb-2.5">
                 <div className="w-16 sm:w-20 md:w-24 h-1 bg-yellow-400"></div>
@@ -297,7 +297,7 @@ export default function AboutUsPage() {
             {/* Section Title */}
             <div className={`text-center mb-4 sm:mb-5 md:mb-6 lg:mb-8 animate-on-scroll ${pelletSpecVisible ? 'animate-textAppear animated' : ''}`}>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-                {t('aboutUs.pelletSpecificationsTitle')}
+                {String(t('aboutUs.pelletSpecificationsTitle'))}
               </h2>
               <div className="flex justify-center mb-2 sm:mb-2.5">
                 <div className="w-16 sm:w-20 md:w-24 h-1 bg-yellow-400"></div>
@@ -339,49 +339,49 @@ export default function AboutUsPage() {
                     <div className="flex items-start gap-3 sm:gap-4">
                       <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('aboutUs.pelletSpec1')}
+                        {String(t('aboutUs.pelletSpec1'))}
                       </p>
                     </div>
                     <div className="flex items-start gap-3 sm:gap-4">
                       <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('aboutUs.pelletSpec2')}
+                        {String(t('aboutUs.pelletSpec2'))}
                       </p>
                     </div>
                     <div className="flex items-start gap-3 sm:gap-4">
                       <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('aboutUs.pelletSpec3')}
+                        {String(t('aboutUs.pelletSpec3'))}
                       </p>
                     </div>
                     <div className="flex items-start gap-3 sm:gap-4">
                       <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('aboutUs.pelletSpec4')}
+                        {String(t('aboutUs.pelletSpec4'))}
                       </p>
                     </div>
                     <div className="flex items-start gap-3 sm:gap-4">
                       <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('aboutUs.pelletSpec5')}
+                        {String(t('aboutUs.pelletSpec5'))}
                       </p>
                     </div>
                     <div className="flex items-start gap-3 sm:gap-4">
                       <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('aboutUs.pelletSpec6')}
+                        {String(t('aboutUs.pelletSpec6'))}
                       </p>
                     </div>
                     <div className="flex items-start gap-3 sm:gap-4">
                       <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('aboutUs.pelletSpec7')}
+                        {String(t('aboutUs.pelletSpec7'))}
                       </p>
                     </div>
                     <div className="flex items-start gap-3 sm:gap-4">
                       <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
                       <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {t('aboutUs.pelletSpec8')}
+                        {String(t('aboutUs.pelletSpec8'))}
                       </p>
                     </div>
                   </div>
@@ -396,7 +396,7 @@ export default function AboutUsPage() {
                         fontFamily: 'var(--font-poppins), Poppins, sans-serif'
                       }}
                     >
-                      {t('aboutUs.contactForPelletRequirement')}
+                      {String(t('aboutUs.contactForPelletRequirement'))}
                     </Link>
                   </div>
                 </div>
@@ -413,13 +413,13 @@ export default function AboutUsPage() {
             {/* Section Title */}
             <div className={`text-center mb-4 sm:mb-5 md:mb-6 lg:mb-8 animate-on-scroll ${comparisonVisible ? 'animate-textAppear animated' : ''}`}>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-                {t('aboutUs.comparisonTitle')}
+                {String(t('aboutUs.comparisonTitle'))}
               </h2>
               <div className="flex justify-center mb-2 sm:mb-2.5">
                 <div className="w-16 sm:w-20 md:w-24 h-1 bg-yellow-400"></div>
               </div>
               <p className="text-sm sm:text-base text-gray-600 mt-2">
-                {t('aboutUs.approxSavings')}
+                {String(t('aboutUs.approxSavings'))}
               </p>
             </div>
 
@@ -431,19 +431,19 @@ export default function AboutUsPage() {
                     <thead style={{ backgroundColor: '#5FAA3F' }}>
                       <tr>
                         <th className="px-4 sm:px-6 py-3 sm:py-4 text-left text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
-                          {t('aboutUs.parameter')}
+                          {String(t('aboutUs.parameter'))}
                         </th>
                         <th className="px-4 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
-                          {t('aboutUs.pelletKg')}
+                          {String(t('aboutUs.pelletKg'))}
                         </th>
                         <th className="px-4 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
-                          {t('aboutUs.lpgKg')}
+                          {String(t('aboutUs.lpgKg'))}
                         </th>
                         <th className="px-4 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
-                          {t('aboutUs.dieselLtr')}
+                          {String(t('aboutUs.dieselLtr'))}
                         </th>
                         <th className="px-4 sm:px-6 py-3 sm:py-4 text-center text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
-                          {t('aboutUs.ldoLtr')}
+                          {String(t('aboutUs.ldoLtr'))}
                         </th>
                       </tr>
                     </thead>
