@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Icon from '../components/Icon';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import NeedHelp from '../components/NeedHelp';
 import { useTranslation } from '../hooks/useTranslation';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -18,7 +18,8 @@ export default function GalleryPage() {
 
   // Automatically generate gallery images array from all .jpg files in gallery folder
   // Based on the files: gallery1.jpg through gallery12.jpg
-  const generateGalleryImages = () => {
+  // Memoized to prevent recreation on every render
+  const galleryImages = useMemo(() => {
     const images = [];
     for (let i = 1; i <= 12; i++) {
       images.push({
@@ -28,26 +29,43 @@ export default function GalleryPage() {
       });
     }
     return images;
-  };
-
-  const galleryImages = generateGalleryImages();
+  }, []);
 
   // Get first 6 images for initial display
-  const initialImages = galleryImages.slice(0, 6);
+  const initialImages = useMemo(() => galleryImages.slice(0, 6), [galleryImages]);
 
-  // Load image dimensions to maintain aspect ratios
+  // Load image dimensions only for visible images (lazy load)
   useEffect(() => {
-    galleryImages.forEach((image) => {
+    const imagesToLoad = showAll ? galleryImages : initialImages;
+    const imageLoadPromises: Promise<void>[] = [];
+    
+    imagesToLoad.forEach((image) => {
+      // Skip if dimensions already loaded
+      if (imageDimensions[image.id]) return;
+      
       const img = new window.Image();
-      img.onload = () => {
-        setImageDimensions((prev) => ({
-          ...prev,
-          [image.id]: { width: img.naturalWidth, height: img.naturalHeight },
-        }));
-      };
-      img.src = image.src;
+      const promise = new Promise<void>((resolve) => {
+        img.onload = () => {
+          setImageDimensions((prev) => ({
+            ...prev,
+            [image.id]: { width: img.naturalWidth, height: img.naturalHeight },
+          }));
+          resolve();
+        };
+        img.onerror = () => resolve(); // Resolve even on error to prevent hanging
+        img.src = image.src;
+      });
+      imageLoadPromises.push(promise);
     });
-  }, []); // Empty dependency array - only run once
+
+    // Cleanup function
+    return () => {
+      // Cancel any pending image loads if component unmounts
+      imageLoadPromises.forEach(() => {
+        // Images will be garbage collected
+      });
+    };
+  }, [showAll]); // Only reload when showAll changes
 
   // Row-by-row animation for gallery images
   useEffect(() => {
@@ -158,13 +176,13 @@ export default function GalleryPage() {
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-10">
           <div className="text-center mb-1 sm:mb-1.5 md:mb-2">
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-              {t('gallery.title')}
+              {String(t('gallery.title'))}
             </h1>
             <div className="flex justify-center mb-2 sm:mb-2.5">
               <div className="w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 h-0.5 sm:h-1 bg-yellow-400"></div>
             </div>
             <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-              {t('gallery.description')}
+              {String(t('gallery.description'))}
             </p>
           </div>
         </div>
@@ -186,7 +204,7 @@ export default function GalleryPage() {
                     ref={(el) => {
                       imagesRef.current[image.id - 1] = el;
                     }}
-                      className={`relative group cursor-pointer w-full mb-4 break-inside-avoid animate-on-scroll ${imagesVisible[image.id - 1] ? `animate-slideInFromLeft animated stagger-${Math.floor((image.id - 1) / (typeof window !== 'undefined' && window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1)) + 1}` : ''}`}
+                      className={`relative group cursor-pointer w-full mb-4 break-inside-avoid animate-on-scroll ${imagesVisible[image.id - 1] ? `animate-slideInFromLeft animated stagger-${Math.floor((image.id - 1) / 3) + 1}` : ''}`}
                     onClick={() => handleImageClick(image.id)}
                   >
                       <div className="relative w-full rounded-xl overflow-hidden border border-gray-200 hover:border-[#5FAA3F] transition-all duration-300" style={{ aspectRatio: aspectRatio }}>
@@ -194,10 +212,12 @@ export default function GalleryPage() {
                         src={image.src}
                         alt={image.alt}
                         fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        quality={90}
-                        unoptimized={false}
+                        quality={75}
+                        loading="lazy"
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';
@@ -231,7 +251,7 @@ export default function GalleryPage() {
                     className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 md:px-6 md:py-3.5 lg:px-8 lg:py-4 border-2 rounded-lg text-[#5FAA3F] hover:bg-[#5FAA3F] hover:text-white transition-all duration-300 font-semibold text-xs sm:text-sm md:text-base lg:text-base"
                     style={{ borderColor: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}
                   >
-                    {t('gallery.viewMore')}
+                    {String(t('gallery.viewMore'))}
                   </button>
                 </div>
               )}
@@ -248,7 +268,7 @@ export default function GalleryPage() {
                     ref={(el) => {
                       imagesRef.current[image.id - 1] = el;
                     }}
-                      className={`relative group cursor-pointer w-full mb-4 break-inside-avoid animate-on-scroll ${imagesVisible[image.id - 1] ? `animate-slideInFromLeft animated stagger-${Math.floor((image.id - 1) / (typeof window !== 'undefined' && window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1)) + 1}` : ''}`}
+                      className={`relative group cursor-pointer w-full mb-4 break-inside-avoid animate-on-scroll ${imagesVisible[image.id - 1] ? `animate-slideInFromLeft animated stagger-${Math.floor((image.id - 1) / 3) + 1}` : ''}`}
                     onClick={() => handleImageClick(image.id)}
                   >
                       <div className="relative w-full rounded-xl overflow-hidden border border-gray-200 hover:border-[#5FAA3F] transition-all duration-300" style={{ aspectRatio: aspectRatio }}>
@@ -256,10 +276,12 @@ export default function GalleryPage() {
                         src={image.src}
                         alt={image.alt}
                         fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        quality={90}
-                        unoptimized={false}
+                        quality={75}
+                        loading="lazy"
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';
@@ -292,7 +314,7 @@ export default function GalleryPage() {
                   className="inline-flex items-center gap-2 px-6 py-2.5 border-2 rounded-lg text-[#5FAA3F] hover:bg-[#5FAA3F] hover:text-white transition-all duration-300 font-medium text-sm"
                   style={{ borderColor: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}
                 >
-                  {t('gallery.viewLess')}
+                  {String(t('gallery.viewLess'))}
                 </button>
               </div>
             </>
@@ -352,9 +374,11 @@ export default function GalleryPage() {
                       maxHeight: '85vh'
                     }}
                   >
-                    <img
+                    <Image
                       src={selectedImg.src}
                       alt={selectedImg.alt}
+                      width={dims.width}
+                      height={dims.height}
                       className="object-contain"
                       style={{
                         maxWidth: '90vw',
@@ -363,6 +387,8 @@ export default function GalleryPage() {
                         height: 'auto',
                         display: 'block'
                       }}
+                      quality={90}
+                      priority
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
@@ -382,9 +408,11 @@ export default function GalleryPage() {
               // Fallback if dimensions not loaded yet
               return (
                 <div className="relative flex items-center justify-center" style={{ maxWidth: '90vw', maxHeight: '85vh' }}>
-                  <img
+                  <Image
                     src={selectedImg?.src || ''}
                     alt={selectedImg?.alt || ''}
+                    width={1200}
+                    height={800}
                     className="object-contain"
                     style={{
                       maxWidth: '90vw',
@@ -393,6 +421,8 @@ export default function GalleryPage() {
                       height: 'auto',
                       display: 'block'
                     }}
+                    quality={90}
+                    priority
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.style.display = 'none';
