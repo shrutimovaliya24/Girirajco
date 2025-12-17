@@ -67,8 +67,10 @@ export default function Hero() {
   }, [hasAnimated]);
   const handleDownloadBrochure = () => {
     const link = document.createElement('a');
-    link.href = '/brochure/brochure.pdf';
-    link.download = 'Giriraj-Industries-Brochure.pdf';
+    // Updated to use the new brochure file placed in the public folder:
+    // public/GIRIRAJ - SERVING GREEN HEAT.pdf  ->  /GIRIRAJ - SERVING GREEN HEAT.pdf
+    link.href = '/GIRIRAJ - SERVING GREEN HEAT.pdf';
+    link.download = 'GIRIRAJ - SERVING GREEN HEAT.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

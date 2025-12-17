@@ -283,13 +283,13 @@ export default function ProductVideoDetailPage() {
                   modalVideoRef.current = el;
                   if (el) {
                     el.muted = true;
+                    el.volume = 0;
                     el.setAttribute('playsinline', '');
                     el.setAttribute('webkit-playsinline', '');
                     el.setAttribute('x5-playsinline', '');
                   }
                 }}
                 src={selectedVideo}
-                controls
                 autoPlay
                 muted
                 playsInline
@@ -305,6 +305,14 @@ export default function ProductVideoDetailPage() {
                 onLoadedMetadata={(e) => {
                   const video = e.currentTarget;
                   video.muted = true;
+                  video.volume = 0;
+                }}
+                onVolumeChange={(e) => {
+                  const video = e.currentTarget;
+                  if (!video.muted || video.volume > 0) {
+                    video.muted = true;
+                    video.volume = 0;
+                  }
                 }}
               />
             </div>
