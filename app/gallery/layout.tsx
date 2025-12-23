@@ -4,7 +4,27 @@ export const metadata: Metadata = {
   title: "Gallery - Biomass Heating Systems & Industrial Equipment",
   description: "View our gallery showcasing Giriraj Industries' biomass heating systems, wood pellet burners, and industrial heating equipment in action. See our products and installations.",
   keywords: "biomass heating gallery, wood pellet burner images, industrial heating equipment photos, biomass systems gallery",
+  alternates: {
+    canonical: "https://girirajco.com/gallery",
+  },
   openGraph: {
+    title: "Gallery - Giriraj Industries",
+    description: "View our gallery of biomass heating systems, wood pellet burners, and industrial heating equipment.",
+    url: "https://girirajco.com/gallery",
+    siteName: "Giriraj Industries",
+    images: [
+      {
+        url: "/gallery/gallery1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Giriraj Industries Gallery",
+      },
+    ],
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
     title: "Gallery - Giriraj Industries",
     description: "View our gallery of biomass heating systems, wood pellet burners, and industrial heating equipment.",
     images: ["/gallery/gallery1.jpg"],

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins, Inter, Geist_Mono } from "next/font/google";
+import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -117,6 +118,17 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="geo.region" content="IN-GJ" />
+        <meta name="geo.placename" content="Surat, Gujarat, India" />
+        <meta name="geo.position" content="21.1702;72.8311" />
+        <meta name="ICBM" content="21.1702, 72.8311" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+        <link rel="alternate" hrefLang="en" href="https://girirajco.com" />
+        <link rel="alternate" hrefLang="gu" href="https://girirajco.com/gu" />
+        <link rel="alternate" hrefLang="x-default" href="https://girirajco.com" />
         {/* Structured Data - Organization */}
         <script
           type="application/ld+json"
@@ -126,7 +138,7 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "Giriraj Industries",
               "url": "https://girirajco.com",
-              "logo": "https://girirajco.com/product/Wood Pellet Burner.png",
+              "logo": "https://girirajco.com/logo.png",
               "description": "Manufacturer of high-efficiency biomass heating systems and wood pellet burners",
               "address": {
                 "@type": "PostalAddress",
@@ -154,6 +166,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${inter.variable} ${geistMono.variable} antialiased`}
       >
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
         <I18nProvider>
         <Header />
         <main className="min-h-screen">
