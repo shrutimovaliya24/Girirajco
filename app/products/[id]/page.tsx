@@ -207,8 +207,18 @@ export default function ProductDetailPage() {
     "offers": {
       "@type": "Offer",
       "priceCurrency": "INR",
+      "price": "0",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "priceCurrency": "INR",
+        "valueAddedTaxIncluded": true
+      },
       "availability": "https://schema.org/InStock",
-      "url": `https://girirajco.com/products/${productId}`
+      "url": `https://girirajco.com/products/${productId}`,
+      "seller": {
+        "@type": "Organization",
+        "name": "Giriraj Industries"
+      }
     }
   };
 

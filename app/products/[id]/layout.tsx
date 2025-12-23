@@ -26,10 +26,29 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     title: `${productName} - Giriraj Industries`,
     description,
     keywords: `${productName.toLowerCase()}, biomass heating, industrial equipment, Giriraj Industries`,
+    alternates: {
+      canonical: `https://girirajco.com/products/${productId}`,
+    },
     openGraph: {
       title: `${productName} - Giriraj Industries`,
       description,
-      images: [`/product/product${productId}.png`],
+      url: `https://girirajco.com/products/${productId}`,
+      siteName: "Giriraj Industries",
+      images: [
+        {
+          url: `/product/${productId === 1 ? 'Wood Pellet Burner.png' : productId === 2 ? 'Hot Air Generator.png' : productId === 3 ? 'Wood Pellet Stove.png' : productId === 4 ? 'Aluminium Melting Furnace.png' : 'Batch Fryer.png'}`,
+          width: 1200,
+          height: 630,
+          alt: `${productName} - Giriraj Industries`,
+        },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${productName} - Giriraj Industries`,
+      description,
+      images: [`/product/${productId === 1 ? 'Wood Pellet Burner.png' : productId === 2 ? 'Hot Air Generator.png' : productId === 3 ? 'Wood Pellet Stove.png' : productId === 4 ? 'Aluminium Melting Furnace.png' : 'Batch Fryer.png'}`],
     },
   };
 }
