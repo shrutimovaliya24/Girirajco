@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import blogPostsData from '../../../data/blog.json';
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const postId = parseInt(params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const postId = parseInt(id);
   const post = blogPostsData.find((p) => p.id === postId);
 
   if (!post) {

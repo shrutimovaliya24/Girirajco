@@ -7,6 +7,8 @@ import SectorsWeCover from './components/SectorsWeCover';
 import Testimonials from './components/Testimonials';
 import NeedHelp from './components/NeedHelp';
 import type { Metadata } from 'next';
+import faqData from '../data/faq.json';
+import testimonialsData from '../data/testimonials.json';
 
 export const metadata: Metadata = {
   title: "Home - High-Efficiency Biomass Heating Systems",
@@ -53,29 +55,76 @@ export default function Home() {
     }
   };
 
-  const productSchema = {
+  const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Wood Pellet Burner - GPB Series",
     "description": "High-efficiency biomass heating systems and wood pellet burners that help industries cut energy costs by up to 56%",
-    "image": "https://girirajco.com/product/Wood Pellet Burner.png",
-    "brand": {
-      "@type": "Brand",
-      "name": "Giriraj Industries"
-    },
-    "manufacturer": {
+    "provider": {
       "@type": "Organization",
-      "name": "Giriraj Industries"
+      "name": "Giriraj Industries",
+      "url": "https://girirajco.com"
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "INR",
-      "availability": "https://schema.org/InStock",
-      "lowPrice": "50000",
-      "highPrice": "500000",
-      "offerCount": "1",
-      "url": "https://girirajco.com/products/1"
+    "areaServed": {
+      "@type": "Country",
+      "name": "India"
     }
+  };
+
+  // FAQ Schema
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://girirajco.com"
+      }
+    ]
+  };
+
+  // Review Schema (AggregateRating from Testimonials)
+  const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Giriraj Industries",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": testimonialsData.length.toString(),
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": testimonialsData.map((testimonial) => ({
+      "@type": "Review",
+      "author": {
+        "@type": "Organization",
+        "name": testimonial.company
+      },
+      "reviewBody": testimonial.text,
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": testimonial.rating.toString(),
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }))
   };
 
   return (
@@ -87,7 +136,19 @@ export default function Home() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
       
       <Hero />

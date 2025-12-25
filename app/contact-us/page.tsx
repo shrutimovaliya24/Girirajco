@@ -47,6 +47,26 @@ export default function ContactUsPage() {
     message: '',
   };
 
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://girirajco.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact Us",
+        "item": "https://girirajco.com/contact-us"
+      }
+    ]
+  };
+
   const handleSubmit = async (values: typeof initialValues, { setSubmitting, resetForm }: any) => {
     try {
       // Web3Forms - FREE, NO LIMITS, reliable, no verification needed
@@ -105,6 +125,12 @@ export default function ContactUsPage() {
   };
 
   return (
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
     <div className="min-h-screen bg-white">
       {/* Contact Section - Redesigned */}
       <section ref={heroRef} className="relative w-full bg-white py-4 sm:py-5 md:py-8 lg:py-8 xl:py-10">
@@ -413,6 +439,7 @@ export default function ContactUsPage() {
       {/* Need Help Section */}
       <NeedHelp />
     </div>
+    </>
   );
 }
 

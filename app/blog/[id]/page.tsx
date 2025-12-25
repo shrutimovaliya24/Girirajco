@@ -32,6 +32,21 @@ export default function BlogPostPage() {
     );
   }
 
+  // Safety check for content
+  if (!post.content || !post.content.sections || !Array.isArray(post.content.sections)) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Blog Post Content Error</h1>
+          <p className="text-gray-600 mb-4">The blog post content is not properly formatted.</p>
+          <Link href="/blog" className="text-[#5FAA3F] hover:underline">
+            Back to Blog
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -76,57 +91,60 @@ export default function BlogPostPage() {
       </section>
 
       {/* Blog Content */}
-      <section ref={contentRef} className="relative w-full bg-white py-6 sm:py-8 md:py-10 lg:py-12">
+      <section className="relative w-full bg-white py-6 sm:py-8 md:py-10 lg:py-12">
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-10">
-          <article className={`max-w-6xl mx-auto animate-on-scroll ${contentVisible ? 'animate-textAppear animated' : ''}`}>
+          <article className="max-w-6xl mx-auto">
             {/* Introduction */}
-            {(post.content as any).introductionImage ? (
+            {(post.content as any)?.introductionImage ? (
               <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-10 mb-8 sm:mb-10 items-center">
                 {/* Image - 40% */}
                 <div className="order-2 lg:order-1 lg:col-span-2">
-                  <div className="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg bg-transparent">
+                  <div className="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg bg-gray-50 min-h-[300px]">
                     <Image
                       src={(post.content as any).introductionImage}
                       alt={post.title}
                       fill
                       className="object-contain"
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      priority
                     />
                   </div>
                 </div>
                 {/* Text - 60% */}
                 <div className="order-1 lg:order-2 lg:col-span-3">
                   <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                    {String(t(`blog.blog${postId}Introduction`))}
+                    {(post.content as any)?.introduction || String(t(`blog.blog${postId}Introduction`)) || 'No introduction available'}
                   </p>
                 </div>
               </div>
             ) : (
               <div className="prose prose-lg max-w-none mb-8 sm:mb-10">
                 <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                  {String(t(`blog.blog${postId}Introduction`))}
+                  {(post.content as any)?.introduction || String(t(`blog.blog${postId}Introduction`)) || 'No introduction available'}
                 </p>
               </div>
             )}
 
             {/* Sections */}
+            {post.content?.sections && Array.isArray(post.content.sections) && post.content.sections.length > 0 && (
             <div className="space-y-8 sm:space-y-10 md:space-y-12">
               {post.content.sections.map((section: any, index: number) => (
                 <div key={index} className="relative">
                   {/* Section Heading */}
                   <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-                    {String(t(`blog.blog${postId}Section${index + 1}Heading`))}
+                    {section.heading || String(t(`blog.blog${postId}Section${index + 1}Heading`))}
                   </h2>
 
                   {/* Section Content */}
                   <div className="prose prose-lg max-w-none">
                     <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                      {String(t(`blog.blog${postId}Section${index + 1}Content`))}
+                      {section.content || String(t(`blog.blog${postId}Section${index + 1}Content`))}
                     </p>
 
                     {/* Subheading */}
                     {section.subheading && (
                       <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4" style={{ color: '#1A1A1A', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                        {String(t(`blog.blog${postId}Section${index + 1}Subheading`))}
+                        {section.subheading || String(t(`blog.blog${postId}Section${index + 1}Subheading`))}
                       </h3>
                     )}
 
@@ -139,7 +157,7 @@ export default function BlogPostPage() {
                               <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: '#5FAA3F' }} />
                             </div>
                             <p className="text-base sm:text-lg text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                              {String(t(`blog.blog${postId}Section${index + 1}Point${pointIndex + 1}`))}
+                              {point || String(t(`blog.blog${postId}Section${index + 1}Point${pointIndex + 1}`))}
                             </p>
                           </li>
                         ))}
@@ -150,7 +168,7 @@ export default function BlogPostPage() {
                     {section.details && (
                       <div className="bg-[#F5F5F5] rounded-lg p-4 sm:p-6 mb-4 sm:mb-6 border-l-4" style={{ borderLeftColor: '#5FAA3F' }}>
                         <p className="text-base sm:text-lg text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                          {String(t(`blog.blog${postId}Section${index + 1}Details`))}
+                          {section.details || String(t(`blog.blog${postId}Section${index + 1}Details`))}
                         </p>
                       </div>
                     )}
@@ -158,6 +176,7 @@ export default function BlogPostPage() {
                 </div>
               ))}
             </div>
+            )}
 
             {/* Back to Blog Button */}
             <div className="mt-10 sm:mt-12 md:mt-16 pt-8 border-t border-gray-200">

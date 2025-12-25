@@ -115,8 +115,66 @@ export default function ProductVideoDetailPage() {
   const hasCategories = productData.categories && Object.keys(productData.categories).length > 0;
   const categories = hasCategories && productData.categories ? Object.keys(productData.categories) : [];
 
+  // Service Schema for SEO
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `${productName} - Biomass Heating Solutions`,
+    "description": `Biomass heating systems and equipment for ${productName} processing. High-efficiency wood pellet burners and industrial heating solutions from Giriraj Industries.`,
+    "provider": {
+      "@type": "Organization",
+      "name": "Giriraj Industries",
+      "url": "https://girirajco.com"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "India"
+    }
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://girirajco.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Products",
+        "item": "https://girirajco.com/products"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Product Videos",
+        "item": "https://girirajco.com/products/videos"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": productName,
+        "item": `https://girirajco.com/products/videos/${productSlug}`
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section ref={heroRef} className="relative w-full bg-white py-4 sm:py-5 md:py-6 lg:py-6">
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-10 xl:px-12 2xl:px-16">

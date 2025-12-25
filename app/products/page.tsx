@@ -94,6 +94,40 @@ export default function ProductsPage() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: faqRef, isVisible: faqVisible } = useScrollAnimation({ threshold: 0.2 });
 
+  // FAQ Schema for Products Page
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://girirajco.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Products",
+        "item": "https://girirajco.com/products"
+      }
+    ]
+  };
+
 // Product Data
 const products = [
   {
@@ -181,6 +215,15 @@ const products = [
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section ref={heroRef} className="relative w-full bg-white py-4 sm:py-5 md:py-8 lg:py-8 xl:py-10">
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-10 xl:px-12 2xl:px-16">
@@ -206,8 +249,6 @@ const products = [
               <article
                 key={product.id}
                 className="group bg-white rounded-xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col transform hover:-translate-y-1"
-                itemScope
-                itemType="https://schema.org/Product"
               >
                 <Link
                   href={`/products/${product.id}`}
@@ -224,7 +265,6 @@ const products = [
                         className="object-contain transition-transform duration-500 group-hover:scale-105"
                         priority={product.id <= 3}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
-                        itemProp="image"
                       />
                     </div>
                   </div>
@@ -235,7 +275,6 @@ const products = [
                     <h2 
                       className="text-base sm:text-lg md:text-xl font-bold mb-4 sm:mb-5 text-gray-900 group-hover:text-[#5FAA3F] transition-colors duration-300 text-center min-h-[3rem] flex items-center justify-center" 
                       style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}
-                      itemProp="name"
                     >
                       {product.name}
                     </h2>
