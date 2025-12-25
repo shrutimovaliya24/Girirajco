@@ -129,17 +129,18 @@ export default function RootLayout({
         <link rel="alternate" hrefLang="en" href="https://girirajco.com" />
         <link rel="alternate" hrefLang="gu" href="https://girirajco.com/gu" />
         <link rel="alternate" hrefLang="x-default" href="https://girirajco.com" />
-        {/* Structured Data - Organization */}
+        {/* Structured Data - LocalBusiness (Enhanced) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": ["Organization", "LocalBusiness", "Manufacturer"],
               "name": "Giriraj Industries",
               "url": "https://girirajco.com",
               "logo": "https://girirajco.com/logo.png",
-              "description": "Manufacturer of high-efficiency biomass heating systems and wood pellet burners",
+              "description": "Manufacturer of high-efficiency biomass heating systems and wood pellet burners. Leading manufacturer in India helping industries reduce energy costs by up to 56%.",
+              "foundingDate": "2010",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "628/5, Vav Gam, Pasodara Gam To, Patiya Road, Kamrej",
@@ -148,17 +149,52 @@ export default function RootLayout({
                 "postalCode": "395013",
                 "addressCountry": "IN"
               },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+91-9825213536",
-                "contactType": "Customer Service",
-                "email": "info@girirajco.com",
-                "areaServed": "IN",
-                "availableLanguage": ["en", "gu"]
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "21.1702",
+                "longitude": "72.8311"
               },
+              "contactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-9825213536",
+                  "contactType": "Customer Service",
+                  "email": "info@girirajco.com",
+                  "areaServed": "IN",
+                  "availableLanguage": ["en", "gu"]
+                },
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-9825213536",
+                  "contactType": "Sales",
+                  "email": "info@girirajco.com",
+                  "areaServed": "IN"
+                }
+              ],
               "sameAs": [
                 "https://www.instagram.com/giriraj_india/"
-              ]
+              ],
+              "priceRange": "$$",
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "opens": "09:00",
+                "closes": "18:00"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5",
+                "reviewCount": "14",
+                "bestRating": "5",
+                "worstRating": "1"
+              }
             })
           }}
         />

@@ -19,8 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     (id) => `/products/${id}`
   );
 
-  // Blog pages (assuming 3 blog posts based on common structure)
-  const blogPages = Array.from({ length: 3 }, (_, i) => i + 1).map(
+  // Blog pages (assuming 4 blog posts based on common structure)
+  const blogPages = Array.from({ length: 4 }, (_, i) => i + 1).map(
     (id) => `/blog/${id}`
   );
 

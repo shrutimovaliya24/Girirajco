@@ -189,36 +189,20 @@ export default function ProductDetailPage() {
 
   const isFirstProduct = product.id === 1;
 
-  // Structured Data for Product
-  const productSchema = {
+  // Structured Data for Service (Best for inquiry-based products)
+  const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
     "name": product.name,
     "description": product.overview,
-    "image": `https://girirajco.com${product.image}`,
-    "brand": {
-      "@type": "Brand",
-      "name": "Giriraj Industries"
-    },
-    "manufacturer": {
+    "provider": {
       "@type": "Organization",
-      "name": "Giriraj Industries"
+      "name": "Giriraj Industries",
+      "url": "https://girirajco.com"
     },
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "INR",
-      "price": "0",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "priceCurrency": "INR",
-        "valueAddedTaxIncluded": true
-      },
-      "availability": "https://schema.org/InStock",
-      "url": `https://girirajco.com/products/${productId}`,
-      "seller": {
-        "@type": "Organization",
-        "name": "Giriraj Industries"
-      }
+    "areaServed": {
+      "@type": "Country",
+      "name": "India"
     }
   };
 
@@ -227,7 +211,7 @@ export default function ProductDetailPage() {
       {/* Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       
       {/* Hero Section */}
@@ -309,9 +293,17 @@ export default function ProductDetailPage() {
                   <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
                     {String(t('products.productOverview'))}
                   </h3>
-                  <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
+                  <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
                     {product.overview}
                   </p>
+                  <div className="bg-[#F5F5F5] rounded-lg p-3 sm:p-4 border-l-4" style={{ borderLeftColor: '#5FAA3F' }}>
+                    <p className="text-xs sm:text-xs md:text-sm lg:text-base font-semibold text-gray-800 mb-1" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
+                      Price available on request
+                    </p>
+                    <p className="text-xs sm:text-xs md:text-sm text-gray-600" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
+                      Custom industrial solution
+                    </p>
+                  </div>
                 </div>
 
                 {/* Specifications */}
@@ -420,9 +412,17 @@ export default function ProductDetailPage() {
                   <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
                     {String(t('products.productOverview'))}
                   </h3>
-                  <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
+                  <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed mb-3 sm:mb-4" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
                     {product.overview}
                   </p>
+                  <div className="bg-[#F5F5F5] rounded-lg p-3 sm:p-4 border-l-4" style={{ borderLeftColor: '#5FAA3F' }}>
+                    <p className="text-xs sm:text-xs md:text-sm lg:text-base font-semibold text-gray-800 mb-1" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
+                      Price available on request
+                    </p>
+                    <p className="text-xs sm:text-xs md:text-sm text-gray-600" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
+                      Custom industrial solution
+                    </p>
+                  </div>
                 </div>
 
                 {/* Specifications */}

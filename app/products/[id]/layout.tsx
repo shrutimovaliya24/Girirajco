@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const productId = parseInt(params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const productId = parseInt(id);
   
   const productNames: Record<number, string> = {
     1: "Wood Pellet Burner",

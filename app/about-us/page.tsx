@@ -80,6 +80,26 @@ export default function AboutUsPage() {
     },
   ];
 
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://girirajco.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About Us",
+        "item": "https://girirajco.com/about-us"
+      }
+    ]
+  };
+
   // Row-by-row animation for Mission/Vision/Objective cards
   useEffect(() => {
     if (!missionVisible) return;
@@ -137,6 +157,12 @@ export default function AboutUsPage() {
   }, [comparisonVisible, comparisonData.length]);
 
   return (
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section ref={heroRef} className="relative w-full bg-white py-4 sm:py-5 md:py-8 lg:py-8 xl:py-10">
@@ -484,5 +510,6 @@ export default function AboutUsPage() {
       {/* Need Help Section */}
       <NeedHelp />
     </div>
+    </>
   );
 }
