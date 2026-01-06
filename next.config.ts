@@ -34,12 +34,7 @@ const nextConfig: NextConfig = {
         destination: 'https://girirajco.com/:path*',
         permanent: true,
       },
-      // Clean brochure URL redirect
-      {
-        source: '/brochure',
-        destination: '/GIRIRAJ - SERVING GREEN HEAT.pdf',
-        permanent: true,
-      },
+      // Clean brochure URL redirect (brochure.pdf only - /brochure is handled by page route)
       {
         source: '/brochure.pdf',
         destination: '/GIRIRAJ - SERVING GREEN HEAT.pdf',
