@@ -34,6 +34,17 @@ const nextConfig: NextConfig = {
         destination: 'https://girirajco.com/:path*',
         permanent: true,
       },
+      // Clean brochure URL redirect
+      {
+        source: '/brochure',
+        destination: '/GIRIRAJ - SERVING GREEN HEAT.pdf',
+        permanent: true,
+      },
+      {
+        source: '/brochure.pdf',
+        destination: '/GIRIRAJ - SERVING GREEN HEAT.pdf',
+        permanent: true,
+      },
     ];
   },
   // Headers for better caching and security
