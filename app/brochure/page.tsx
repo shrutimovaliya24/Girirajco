@@ -4,3 +4,4 @@ export default function BrochurePage() {
   redirect('/GIRIRAJ - SERVING GREEN HEAT.pdf');
 }
 
+
