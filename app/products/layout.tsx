@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Products - Biomass Heating Systems & Wood Pellet Burners",
-  description: "Explore Giriraj Industries' range of high-efficiency biomass heating systems, wood pellet burners (GPB models), hot air generators, and industrial heating equipment. View specifications, models, and technical details.",
-  keywords: "biomass heating products, wood pellet burners, GPB models, hot air generators, industrial heating equipment, biomass burners, fuel-efficient heating systems",
+  title: "Products - Biomass Heating Systems & Biomass Pellet Burners",
+  description: "Explore Giriraj Industries' range of high-efficiency biomass heating systems, biomass pellet burners (GPB models), hot air generators, and industrial heating equipment. View specifications, models, and technical details.",
+  keywords: "biomass heating products, biomass pellet burners, GPB models, hot air generators, industrial heating equipment, biomass burners, fuel-efficient heating systems",
   alternates: {
     canonical: "https://girirajco.com/products",
   },
   openGraph: {
-    title: "Products - Biomass Heating Systems & Wood Pellet Burners",
-    description: "Explore our range of high-efficiency biomass heating systems, wood pellet burners, and industrial heating equipment.",
+    title: "Products - Biomass Heating Systems & Biomass Pellet Burners",
+    description: "Explore our range of high-efficiency biomass heating systems, biomass pellet burners, and industrial heating equipment.",
     url: "https://girirajco.com/products",
     siteName: "Giriraj Industries",
     images: [
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Products - Biomass Heating Systems & Wood Pellet Burners",
-    description: "Explore our range of high-efficiency biomass heating systems, wood pellet burners, and industrial heating equipment.",
+    title: "Products - Biomass Heating Systems & Biomass Pellet Burners",
+    description: "Explore our range of high-efficiency biomass heating systems, biomass pellet burners, and industrial heating equipment.",
     images: ["/product/Wood Pellet Burner.png"],
   },
 };

@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Product Videos - Watch Our Equipment in Action",
-  description: "Watch videos of Giriraj Industries' biomass heating systems, wood pellet burners, and industrial equipment in action. See our products for Namkeen, Peanut, Chana, Fryms, and more.",
-  keywords: "biomass heating videos, wood pellet burner videos, industrial equipment videos, product demonstrations, Giriraj Industries videos",
+  description: "Watch videos of Giriraj Industries' biomass heating systems, biomass pellet burners, and industrial equipment in action. See our products for Namkeen, Peanut, Chana, Fryms, and more.",
+  keywords: "biomass heating videos, biomass pellet burner videos, industrial equipment videos, product demonstrations, Giriraj Industries videos",
   alternates: {
     canonical: "https://girirajco.com/products/videos",
   },

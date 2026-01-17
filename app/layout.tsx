@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     default: "Giriraj Industries - High-Efficiency Biomass Heating Systems",
     template: "%s | Giriraj Industries"
   },
-  description: "Giriraj Industries manufactures high-efficiency biomass heating systems and wood pellet burners that help industries cut energy costs by up to 56% and switch from fossil fuels to clean, sustainable wood pellets. Leading manufacturer in India.",
+  description: "Giriraj Industries manufactures high-efficiency biomass heating systems and biomass pellet burners that help industries cut energy costs by up to 56% and switch from fossil fuels to clean, sustainable biomass pellets. Leading manufacturer in India.",
   keywords: [
     "biomass heating systems",
-    "wood pellet burners",
+    "biomass pellet burners",
     "biomass burners",
     "industrial heating",
     "wood pellets",
@@ -63,20 +63,20 @@ export const metadata: Metadata = {
     url: "https://girirajco.com",
     siteName: "Giriraj Industries",
     title: "Giriraj Industries - High-Efficiency Biomass Heating Systems",
-    description: "Manufacturing high-efficiency biomass heating systems and wood pellet burners. Cut energy costs by up to 56% with sustainable wood pellets.",
+    description: "Manufacturing high-efficiency biomass heating systems and biomass pellet burners. Cut energy costs by up to 56% with sustainable biomass pellets.",
     images: [
       {
         url: "/product/Wood Pellet Burner.png",
         width: 1200,
         height: 630,
-        alt: "Giriraj Industries - Wood Pellet Burner",
+        alt: "Giriraj Industries - Biomass Pellet Burner",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Giriraj Industries - High-Efficiency Biomass Heating Systems",
-    description: "Manufacturing high-efficiency biomass heating systems and wood pellet burners. Cut energy costs by up to 56% with sustainable wood pellets.",
+    description: "Manufacturing high-efficiency biomass heating systems and biomass pellet burners. Cut energy costs by up to 56% with sustainable biomass pellets.",
     images: ["/product/Wood Pellet Burner.png"],
   },
   robots: {
@@ -140,7 +140,7 @@ export default function RootLayout({
               "name": "Giriraj Industries",
               "url": "https://girirajco.com",
               "logo": "https://girirajco.com/logo.png",
-              "description": "Manufacturer of high-efficiency biomass heating systems and wood pellet burners. Leading manufacturer in India helping industries reduce energy costs by up to 56%.",
+              "description": "Manufacturer of high-efficiency biomass heating systems and biomass pellet burners. Leading manufacturer in India helping industries reduce energy costs by up to 56%.",
               "foundingDate": "2010",
               "address": {
                 "@type": "PostalAddress",

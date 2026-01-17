@@ -232,7 +232,7 @@ export default function ProductDetailPage() {
       <section className="relative w-full bg-white py-4 sm:py-5 md:py-6 lg:py-8 xl:py-10">
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-10 xl:px-12 2xl:px-16">
           {isFirstProduct ? (
-            // Special layout for first product (Wood Pellet Burner) with model selector
+            // Special layout for first product (Biomass Pellet Burner) with model selector
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 2xl:gap-16">
               {/* Left Column: Model Selector + Image */}
               <div>

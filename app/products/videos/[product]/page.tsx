@@ -120,7 +120,7 @@ export default function ProductVideoDetailPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": `${productName} - Biomass Heating Solutions`,
-    "description": `Biomass heating systems and equipment for ${productName} processing. High-efficiency wood pellet burners and industrial heating solutions from Giriraj Industries.`,
+    "description": `Biomass heating systems and equipment for ${productName} processing. High-efficiency biomass pellet burners and industrial heating solutions from Giriraj Industries.`,
     "provider": {
       "@type": "Organization",
       "name": "Giriraj Industries",

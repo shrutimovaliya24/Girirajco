@@ -54,7 +54,7 @@ export default function AboutUs() {
           <div ref={textRef} className={`order-1 lg:order-2 animate-on-scroll ${textVisible ? 'animate-textAppear animated' : ''}`}>
             <div className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
               <p className={`text-xs sm:text-sm md:text-sm lg:text-base xl:text-base text-gray-800 leading-relaxed animate-on-scroll ${textVisible ? 'animate-textAppear animated' : ''}`} style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                <span className="font-semibold text-gray-900">Giriraj</span> {String(t('aboutUs.content'))}
+                <span className="text-gray-900">Giriraj</span> {String(t('aboutUs.content'))}
               </p>
               
               {/* View More Button - Orange Gradient (Secondary) */}

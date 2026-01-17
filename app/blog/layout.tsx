@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Blog - Biomass Heating Insights & Industry News",
-  description: "Read the latest articles, insights, and news about biomass heating systems, wood pellet burners, renewable energy, and sustainable industrial heating solutions from Giriraj Industries.",
-  keywords: "biomass heating blog, wood pellet burner articles, renewable energy news, sustainable heating insights, industrial heating blog",
+  description: "Read the latest articles, insights, and news about biomass heating systems, biomass pellet burners, renewable energy, and sustainable industrial heating solutions from Giriraj Industries.",
+  keywords: "biomass heating blog, biomass pellet burner articles, renewable energy news, sustainable heating insights, industrial heating blog",
   alternates: {
     canonical: "https://girirajco.com/blog",
   },

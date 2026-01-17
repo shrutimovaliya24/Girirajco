@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return {
     title: `${title} - Giriraj Industries`,
     description,
-    keywords: `${post.category.toLowerCase()}, biomass heating, wood pellet burners, industrial heating, ${title.toLowerCase()}`,
+    keywords: `${post.category.toLowerCase()}, biomass heating, biomass pellet burners, industrial heating, ${title.toLowerCase()}`,
     alternates: {
       canonical: `https://girirajco.com/blog/${postId}`,
     },
