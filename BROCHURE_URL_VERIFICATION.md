@@ -154,4 +154,7 @@ https://girirajco.com/brochure.pdf
 *Last Updated: 2025*
 *Status: Ready for testing*
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 595dbe210299e6646252340b4103cdc4ec778c59

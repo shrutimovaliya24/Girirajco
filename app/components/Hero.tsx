@@ -163,6 +163,7 @@ export default function Hero() {
             </div>
           </div>
 
+<<<<<<< HEAD
           {/* Right Section - Hero Video with Decorative Shapes */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end items-center py-2 sm:py-3 md:py-4 relative">
             <div className="relative w-full max-w-[900px]">
@@ -184,6 +185,21 @@ export default function Hero() {
               </div>
             </div>
           </div>
+=======
+          {/* Right Section - Hero Video - Fully Responsive */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end items-center py-2 sm:py-3 md:py-4 overflow-hidden">
+          <div className="w-full max-w-[900px] aspect-video bg-white overflow-hidden">
+  <video
+    src="/Hero Page Burner Motion 360.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full h-full object-cover scale-[1.02]"
+  />
+</div>
+</div>
+>>>>>>> 595dbe210299e6646252340b4103cdc4ec778c59
         </div>
       </div>
     </section>
