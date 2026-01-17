@@ -41,3 +41,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large video files
+public/Hero Page Burner Motion 360.mp4
+*.mp4
