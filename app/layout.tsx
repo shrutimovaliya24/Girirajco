@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingContactWidget from "./components/FloatingContactWidget";
 import I18nProvider from "./components/I18nProvider";
+import AnnouncementBar from "./components/AnnouncementBar";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -204,6 +205,7 @@ export default function RootLayout({
       >
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
         <I18nProvider>
+        <AnnouncementBar />
         <Header />
         <main className="min-h-screen">
           {children}
