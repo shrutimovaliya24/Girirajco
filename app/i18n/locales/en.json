@@ -199,6 +199,8 @@
   "products": {
     "title": "Our Products",
     "description": "Explore our comprehensive range of biomass heating systems designed for efficiency and reliability",
+    "viewDetails": "View Details",
+    "viewAllProducts": "View all products",
     "selectModel": "Select Model",
     "chooseModel": "Choose from our range of models",
     "productOverview": "Product Overview",

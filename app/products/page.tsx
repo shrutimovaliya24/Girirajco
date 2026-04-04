@@ -282,7 +282,7 @@ const products = [
                     {/* View Details Button */}
                     <div className="flex items-center justify-center gap-2 mt-auto pt-2">
                       <span className="text-sm sm:text-base font-semibold text-[#5FAA3F] group-hover:text-[#2E7D32] transition-colors duration-300" style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}>
-                        View Details
+                        {String(t('products.viewDetails'))}
                       </span>
                       <FiArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-[#5FAA3F] group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
