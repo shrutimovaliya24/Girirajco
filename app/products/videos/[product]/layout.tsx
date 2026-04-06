@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { productOrder } from '../../../../data/productVideos';
+import { buildProductVideoJsonLd } from '../../../../data/productVideoSchema';
 
 export async function generateMetadata({ params }: { params: Promise<{ product: string }> }): Promise<Metadata> {
   const { product } = await params;
@@ -50,11 +51,26 @@ export async function generateMetadata({ params }: { params: Promise<{ product: 
   };
 }
 
-export default function ProductVideoLayout({
+export default async function ProductVideoLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ product: string }>;
 }) {
-  return <>{children}</>;
+  const { product } = await params;
+  const videoJsonLd = buildProductVideoJsonLd(product);
+
+  return (
+    <>
+      {videoJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }}
+        />
+      ) : null}
+      {children}
+    </>
+  );
 }
 

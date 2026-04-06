@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { buildVideosHubItemListJsonLd } from '../../../data/productVideoSchema';
 
 export const metadata: Metadata = {
   title: "Product Videos - Watch Our Equipment in Action",
@@ -36,6 +37,16 @@ export default function ProductVideosLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  const hubListJsonLd = buildVideosHubItemListJsonLd();
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(hubListJsonLd) }}
+      />
+      {children}
+    </>
+  );
 }
 
