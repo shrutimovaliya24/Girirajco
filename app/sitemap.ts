@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import blogPostsData from '../data/blog.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://girirajco.com';
@@ -19,10 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     (id) => `/products/${id}`
   );
 
-  // Blog pages (assuming 4 blog posts based on common structure)
-  const blogPages = Array.from({ length: 4 }, (_, i) => i + 1).map(
-    (id) => `/blog/${id}`
-  );
+  // Blog pages (source of truth: `data/blog.json`)
+  const blogPages = blogPostsData.map((post) => `/blog/${post.id}`);
 
   // Video product pages
   const videoProductPages = [
