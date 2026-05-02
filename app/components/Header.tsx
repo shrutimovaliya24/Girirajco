@@ -2,12 +2,22 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 
+const LOCALE_COOKIE = 'NEXT_LOCALE';
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
   const { t, changeLanguage, currentLanguage } = useTranslation();
+
+  function switchLanguage(code: string) {
+    document.cookie = `${LOCALE_COOKIE}=${code};path=/;max-age=31536000;samesite=lax`;
+    changeLanguage(code);
+    router.refresh();
+  }
 
   const navLinks = [
     { href: '/', label: String(t('header.home')) },
@@ -81,7 +91,7 @@ export default function Header() {
               {languages.map((lang) => (
                 <button
                   key={lang.code}
-                  onClick={() => changeLanguage(lang.code)}
+                  onClick={() => switchLanguage(lang.code)}
                   className={`px-2.5 py-1.5 xl:px-3 xl:py-2 rounded-md text-xs xl:text-sm font-semibold transition-all duration-300 min-w-[36px] xl:min-w-[40px] ${
                     currentLanguage === lang.code
                       ? 'bg-[#5FAA3F] text-white shadow-md'
@@ -101,7 +111,7 @@ export default function Header() {
             {languages.map((lang) => (
               <button
                 key={lang.code}
-                onClick={() => changeLanguage(lang.code)}
+                onClick={() => switchLanguage(lang.code)}
                 className={`px-2.5 py-1.5 rounded-md text-xs font-semibold transition-all duration-300 min-w-[32px] ${
                   currentLanguage === lang.code
                     ? 'bg-[#5FAA3F] text-white shadow-md'
@@ -176,7 +186,7 @@ export default function Header() {
               {languages.map((lang) => (
                 <button
                   key={lang.code}
-                  onClick={() => changeLanguage(lang.code)}
+                  onClick={() => switchLanguage(lang.code)}
                   className={`px-3 py-1.5 rounded-md text-xs sm:text-sm font-semibold transition-all duration-300 min-w-[40px] ${
                     currentLanguage === lang.code
                       ? 'bg-[#5FAA3F] text-white shadow-md'

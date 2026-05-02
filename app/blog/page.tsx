@@ -4,10 +4,17 @@ import Icon from "../components/Icon";
 import NeedHelp from "../components/NeedHelp";
 import blogPostsData from "../../data/blog.json";
 import { getBlogSlugById } from "../../lib/blog-slugs";
-import { tCommon } from "../i18n/serverTranslate";
+import { localizeBlogSummary } from "../../lib/blog-localize";
+import { detectLocale, tCommon } from "../i18n/serverTranslate";
 
 export default async function BlogPage() {
-  const blogPosts = blogPostsData;
+  const locale = await detectLocale();
+  const blogPosts = await Promise.all(
+    blogPostsData.map(async (post) => ({
+      ...post,
+      ...(await localizeBlogSummary(post, locale)),
+    }))
+  );
   const title = await tCommon("blog.title");
   const description = await tCommon("blog.description");
   const readMoreLabel = await tCommon("blog.readMore");

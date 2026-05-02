@@ -4,11 +4,13 @@ import { notFound } from "next/navigation";
 import Icon from "../../components/Icon";
 import NeedHelp from "../../components/NeedHelp";
 import blogPostsData from "../../../data/blog.json";
-import { tCommon } from "../../i18n/serverTranslate";
+import { localizeBlogPostForDisplay } from "../../../lib/blog-localize";
+import { detectLocale, tCommon } from "../../i18n/serverTranslate";
 import { getBlogPostIdFromSlug } from "../../../lib/blog-slugs";
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const locale = await detectLocale();
   const postId = getBlogPostIdFromSlug(slug);
   const post = postId != null ? blogPostsData.find((p) => p.id === postId) : undefined;
   const backToBlogLabel = await tCommon("blog.backToBlog");
@@ -21,8 +23,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
+  const displayPost = await localizeBlogPostForDisplay(post, locale);
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" lang={locale}>
       {/* Hero Section */}
       <section className="relative w-full bg-white py-6 sm:py-8 md:py-10 lg:py-12">
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-10">
@@ -40,7 +44,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {/* Category Badge */}
             <div className="mb-4">
               <span className="inline-block px-4 py-2 bg-[#5FAA3F] text-white text-xs sm:text-sm font-semibold rounded-full">
-                {post.category}
+                {displayPost.category}
               </span>
             </div>
 
@@ -49,7 +53,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6"
               style={{ color: "#5FAA3F", fontFamily: "var(--font-poppins), Poppins, sans-serif", lineHeight: "1.2" }}
             >
-              {post.title}
+              {displayPost.title}
             </h1>
 
             {/* Meta Information */}
@@ -72,14 +76,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-10">
           <article className="max-w-6xl mx-auto">
             {/* Introduction */}
-            {(post.content as any)?.introductionImage ? (
+            {(displayPost.content as any)?.introductionImage ? (
               <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-10 mb-8 sm:mb-10 items-center">
                 {/* Image - 40% */}
                 <div className="order-2 lg:order-1 lg:col-span-2">
                   <div className="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg bg-gray-50 min-h-[300px]">
                     <Image
-                      src={(post.content as any).introductionImage}
-                      alt={`Introduction image for: ${post.title}`}
+                      src={(displayPost.content as any).introductionImage}
+                      alt={`Introduction image for: ${displayPost.title}`}
                       fill
                       className="object-contain"
                       sizes="(max-width: 1024px) 100vw, 40vw"
@@ -90,22 +94,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 {/* Text - 60% */}
                 <div className="order-1 lg:order-2 lg:col-span-3">
                   <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed" style={{ fontFamily: "var(--font-inter), Inter, sans-serif" }}>
-                    {(post.content as any)?.introduction || "No introduction available"}
+                    {(displayPost.content as any)?.introduction || "No introduction available"}
                   </p>
                 </div>
               </div>
             ) : (
               <div className="prose prose-lg max-w-none mb-8 sm:mb-10">
                 <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed" style={{ fontFamily: "var(--font-inter), Inter, sans-serif" }}>
-                  {(post.content as any)?.introduction || "No introduction available"}
+                  {(displayPost.content as any)?.introduction || "No introduction available"}
                 </p>
               </div>
             )}
 
             {/* Sections */}
-            {post.content?.sections && Array.isArray(post.content.sections) && post.content.sections.length > 0 && (
+            {displayPost.content?.sections && Array.isArray(displayPost.content.sections) && displayPost.content.sections.length > 0 && (
             <div className="space-y-8 sm:space-y-10 md:space-y-12">
-              {post.content.sections.map((section: any, index: number) => (
+              {displayPost.content.sections.map((section: any, index: number) => (
                 <div key={index} className="relative">
                   {/* Section Heading */}
                   <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6" style={{ color: "#5FAA3F", fontFamily: "var(--font-poppins), Poppins, sans-serif", lineHeight: "1.2" }}>

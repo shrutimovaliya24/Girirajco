@@ -1,4 +1,4 @@
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 import enTranslations from "./locales/en.json";
 import guTranslations from "./locales/gu.json";
 
@@ -27,8 +27,14 @@ function detectLocaleFromAcceptLanguage(acceptLanguage: string | null): Locale {
   return "en";
 }
 
+/** Cookie read by server components so Gujarati matches the header language toggle + localStorage. */
+export const LOCALE_COOKIE = "NEXT_LOCALE";
+
 export async function detectLocale(): Promise<Locale> {
-  // In Next 16, `headers()` can be typed as a Promise in some contexts.
+  const cookieStore = await cookies();
+  const fromCookie = cookieStore.get(LOCALE_COOKIE)?.value;
+  if (fromCookie === "gu" || fromCookie === "en") return fromCookie;
+
   const headerStore = await headers();
   const acceptLanguage = headerStore.get("accept-language");
   return detectLocaleFromAcceptLanguage(acceptLanguage);
