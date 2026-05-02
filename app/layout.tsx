@@ -98,10 +98,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://girirajco.com",
-    languages: {
-      "en": "https://girirajco.com",
-      "gu": "https://girirajco.com/gu",
-    },
   },
   category: "Industrial Equipment",
 };
@@ -125,12 +121,8 @@ export default function RootLayout({
         <meta name="geo.position" content="21.1702;72.8311" />
         <meta name="ICBM" content="21.1702, 72.8311" />
         <meta name="language" content="English" />
-        <meta name="revisit-after" content="7 days" />
         <meta name="distribution" content="global" />
         <meta name="rating" content="general" />
-        <link rel="alternate" hrefLang="en" href="https://girirajco.com" />
-        <link rel="alternate" hrefLang="gu" href="https://girirajco.com/gu" />
-        <link rel="alternate" hrefLang="x-default" href="https://girirajco.com" />
         {/* Structured Data - LocalBusiness (Enhanced) */}
         <script
           type="application/ld+json"

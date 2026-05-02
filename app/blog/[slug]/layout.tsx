@@ -1,15 +1,22 @@
 import type { Metadata } from 'next';
 import blogPostsData from '../../../data/blog.json';
+import { getBlogPostIdFromSlug, getBlogSlugById } from '../../../lib/blog-slugs';
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  const { id } = await params;
-  const postId = parseInt(id);
-  const post = blogPostsData.find((p) => p.id === postId);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const postId = getBlogPostIdFromSlug(slug);
+  const canonicalSlug = postId != null ? getBlogSlugById(postId) : null;
+  const post = postId != null ? blogPostsData.find((p) => p.id === postId) : undefined;
 
-  if (!post) {
+  if (!post || !canonicalSlug) {
     return {
-      title: "Blog Post Not Found - Giriraj Industries",
-      description: "The requested blog post could not be found.",
+      title: 'Blog Post Not Found - Giriraj Industries',
+      description: 'The requested blog post could not be found.',
+      robots: { index: false, follow: true },
     };
   }
 
@@ -22,13 +29,13 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     description,
     keywords: `${post.category.toLowerCase()}, biomass heating, biomass pellet burners, industrial heating, ${title.toLowerCase()}`,
     alternates: {
-      canonical: `https://girirajco.com/blog/${postId}`,
+      canonical: `https://girirajco.com/blog/${canonicalSlug}`,
     },
     openGraph: {
       title: `${title} - Giriraj Industries`,
       description,
-      url: `https://girirajco.com/blog/${postId}`,
-      siteName: "Giriraj Industries",
+      url: `https://girirajco.com/blog/${canonicalSlug}`,
+      siteName: 'Giriraj Industries',
       images: [
         {
           url: image,
@@ -37,14 +44,14 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
           alt: title,
         },
       ],
-      type: "article",
+      type: 'article',
       publishedTime: post.date,
       authors: [post.author],
       section: post.category,
-      locale: "en_US",
+      locale: 'en_US',
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title: `${title} - Giriraj Industries`,
       description,
       images: [image],
@@ -59,4 +66,3 @@ export default function BlogPostLayout({
 }) {
   return <>{children}</>;
 }
-

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Icon from "../components/Icon";
 import NeedHelp from "../components/NeedHelp";
 import blogPostsData from "../../data/blog.json";
+import { getBlogSlugById } from "../../lib/blog-slugs";
 import { tCommon } from "../i18n/serverTranslate";
 
 export default async function BlogPage() {
@@ -40,7 +41,10 @@ export default async function BlogPage() {
       <section className="relative w-full bg-white pt-0 pb-4 sm:pb-5 md:pb-6 lg:pb-8 xl:pb-10">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-            {blogPosts.map((post) => (
+            {blogPosts.map((post) => {
+              const slug = getBlogSlugById(post.id);
+              if (!slug) return null;
+              return (
               <article
                 key={post.id}
                 className="bg-white rounded-xl overflow-hidden border border-gray-200 transition-all duration-300 hover:-translate-y-2 shadow-sm hover:shadow-lg hover:border-[#5FAA3F] group h-full flex flex-col"
@@ -90,7 +94,7 @@ export default async function BlogPage() {
 
                   {/* Read More Link */}
                   <Link
-                    href={`/blog/${post.id}`}
+                    href={`/blog/${slug}`}
                     className="inline-flex items-center gap-2 font-semibold text-xs sm:text-xs md:text-sm lg:text-base hover:gap-3 hover:bg-[#5FAA3F] hover:text-white px-2 py-1 rounded transition-all duration-300 group/link mt-auto text-[#5FAA3F]"
                   >
                     <span>{readMoreLabel}</span>
@@ -98,7 +102,8 @@ export default async function BlogPage() {
                   </Link>
                 </div>
               </article>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>

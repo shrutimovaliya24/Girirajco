@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';
 import { useTranslation } from '../hooks/useTranslation';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { getProductSlugById } from '../../lib/product-slugs';
 
 export default function HomeProducts() {
   const { t } = useTranslation();
@@ -51,13 +52,16 @@ export default function HomeProducts() {
         <div
           className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 sm:gap-7 md:gap-8 lg:gap-8 xl:gap-6 animate-on-scroll ${sectionVisible ? 'animate-textAppear animated stagger-2' : ''}`}
         >
-          {products.map((product) => (
+          {products.map((product) => {
+            const slug = getProductSlugById(product.id);
+            if (!slug) return null;
+            return (
             <article
               key={product.id}
               className="group bg-white rounded-xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col transform hover:-translate-y-1"
             >
               <Link
-                href={`/products/${product.id}`}
+                href={`/products/${slug}`}
                 className="flex flex-col flex-grow"
                 aria-label={`${String(t(product.nameKey))} — ${String(t('products.viewDetails'))}`}
               >
@@ -92,7 +96,8 @@ export default function HomeProducts() {
                 </div>
               </Link>
             </article>
-          ))}
+          );
+          })}
         </div>
 
         <div className="flex justify-center mt-8 sm:mt-10 md:mt-12">

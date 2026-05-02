@@ -12,6 +12,7 @@ import { gpbModels, type GPBModel } from '../gpb-models';
 import { useTranslation } from '../../hooks/useTranslation';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { useParams } from 'next/navigation';
+import { getProductIdFromSlug, getProductSlugById } from '../../../lib/product-slugs';
 
 // 3D Model Component for Products
 function ProductModel({ modelPath }: { modelPath?: string }) {
@@ -85,10 +86,12 @@ function Product3DViewer({ modelPath }: { modelPath?: string }) {
   );
 }
 
-export default function ProductDetailPage() {
+export default function ProductDetailPageClient() {
   const params = useParams();
   const { t } = useTranslation();
-  const productId = parseInt(params.id as string);
+  const slugParam = params.slug;
+  const slug = typeof slugParam === 'string' ? slugParam : slugParam?.[0];
+  const productId = slug ? getProductIdFromSlug(slug) : null;
   const [selectedGPBModel, setSelectedGPBModel] = useState<string>('GPB-01');
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.1 });
 
@@ -171,20 +174,11 @@ export default function ProductDetailPage() {
     },
   ];
 
-  const product = products.find((p) => p.id === productId);
+  const product = productId != null ? products.find((p) => p.id === productId) : undefined;
   const selectedModelData: GPBModel = gpbModels.find((model: GPBModel) => model.id === selectedGPBModel) || gpbModels[0];
 
   if (!product) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Product Not Found</h1>
-          <Link href="/products" className="text-[#5FAA3F] hover:underline">
-            Back to Products
-          </Link>
-        </div>
-      </div>
-    );
+    throw new Error('ProductDetailPageClient: slug must be validated by server page');
   }
 
   const isFirstProduct = product.id === 1;
@@ -465,7 +459,10 @@ export default function ProductDetailPage() {
             {products
               .filter((p) => p.id !== productId)
               .slice(0, 4)
-              .map((relatedProduct) => (
+              .map((relatedProduct) => {
+                const relatedSlug = getProductSlugById(relatedProduct.id);
+                if (!relatedSlug) return null;
+                return (
                 <article
                   key={relatedProduct.id}
                   className="group bg-white rounded-xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col transform hover:-translate-y-1"
@@ -473,7 +470,7 @@ export default function ProductDetailPage() {
                   itemType="https://schema.org/Product"
                 >
                   <Link
-                    href={`/products/${relatedProduct.id}`}
+                    href={`/products/${relatedSlug}`}
                     className="flex flex-col flex-grow"
                     aria-label={`View details for ${relatedProduct.name}`}
                   >
@@ -512,7 +509,8 @@ export default function ProductDetailPage() {
                     </div>
                   </Link>
                 </article>
-              ))}
+              );
+              })}
           </div>
         </div>
       </section>

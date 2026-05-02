@@ -35,17 +35,16 @@ export async function detectLocale(): Promise<Locale> {
 }
 
 /**
- * Server-side translation from the `common` namespace using the same key style
- * as your client `t('blog.title')` calls (dot notation).
+ * Server-side translation using the same keys as the client `common` namespace
+ * in `i18n.js` (entire locale JSON: `blog.title`, `products.title`, etc.).
  */
 export async function tCommon(key: string, locale?: Locale): Promise<string> {
   const selectedLocale = locale ?? (await detectLocale());
-  const selected = getByDotPath(resources[selectedLocale].common, key);
+  const selected = getByDotPath(resources[selectedLocale], key);
 
   if (typeof selected === "string") return selected;
 
-  // Fallback to English when key is missing for the selected locale.
-  const fallback = getByDotPath(resources.en.common, key);
+  const fallback = getByDotPath(resources.en, key);
   if (typeof fallback === "string") return fallback;
 
   return key;

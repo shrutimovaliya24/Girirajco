@@ -26,6 +26,13 @@ function absoluteFromPath(path: string): string {
   return new URL(clean, `${SITE}/`).href;
 }
 
+/** ISO 8601 date for VideoObject.uploadDate (required for video rich results). */
+function uploadDateIsoFromSrc(src: string): string {
+  const m = src.match(/VID-(\d{4})(\d{2})(\d{2})/);
+  if (m) return `${m[1]}-${m[2]}-${m[3]}`;
+  return '2010-01-01';
+}
+
 /**
  * JSON-LD @graph of VideoObject entries for all clips on a product video page.
  */
@@ -52,6 +59,7 @@ export function buildProductVideoJsonLd(productSlugParam: string): {
     thumbnailUrl: DEFAULT_THUMBNAIL,
     contentUrl: absoluteFromPath(src),
     embedUrl: watchPage,
+    uploadDate: uploadDateIsoFromSrc(src),
     publisher: {
       '@type': 'Organization',
       name: 'Giriraj Industries',

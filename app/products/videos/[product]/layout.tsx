@@ -1,20 +1,25 @@
 import type { Metadata } from 'next';
-import { productOrder } from '../../../../data/productVideos';
+import {
+  productOrder,
+  productVideos,
+  videoProductNameToSlug,
+} from '../../../../data/productVideos';
 import { buildProductVideoJsonLd } from '../../../../data/productVideoSchema';
 
 export async function generateMetadata({ params }: { params: Promise<{ product: string }> }): Promise<Metadata> {
   const { product } = await params;
-  
-  // Find product name from slug
-  const productName = productOrder.find(name => 
-    name.toLowerCase().replace(/\s+/g, '-') === product
-  ) || product;
 
-  // Create friendly product name
-  const displayName = productName
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+  const resolvedName = productOrder.find(
+    (name) => videoProductNameToSlug(name) === product
+  );
+  if (!resolvedName || !productVideos[resolvedName]) {
+    return {
+      title: 'Product Videos | Giriraj Industries',
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const displayName = resolvedName;
 
   const title = `${displayName} - Product Videos | Giriraj Industries`;
   const description = `Watch videos of Giriraj Industries' ${displayName} biomass heating systems and equipment in action. See real installations and product demonstrations.`;

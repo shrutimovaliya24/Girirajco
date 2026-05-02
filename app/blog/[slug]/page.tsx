@@ -1,58 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import Icon from "../../components/Icon";
 import NeedHelp from "../../components/NeedHelp";
 import blogPostsData from "../../../data/blog.json";
 import { tCommon } from "../../i18n/serverTranslate";
+import { getBlogPostIdFromSlug } from "../../../lib/blog-slugs";
 
-export default async function BlogPostPage({ params }: { params: { id: string } }) {
-  const postId = Number(params.id);
-  const post = blogPostsData.find((p) => p.id === postId);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const postId = getBlogPostIdFromSlug(slug);
+  const post = postId != null ? blogPostsData.find((p) => p.id === postId) : undefined;
   const backToBlogLabel = await tCommon("blog.backToBlog");
 
   if (!post) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Blog Post Not Found</h1>
-          <Link href="/blog" className="text-[#5FAA3F] hover:underline">
-            Back to Blog
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
-  // Safety check for content
   if (!post.content || !post.content.sections || !Array.isArray(post.content.sections)) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Blog Post Content Error</h1>
-          <p className="text-gray-600 mb-4">The blog post content is not properly formatted.</p>
-          <Link href="/blog" className="text-[#5FAA3F] hover:underline">
-            Back to Blog
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
-
-  const relatedPosts = blogPostsData.filter((p) => p.id !== postId).slice(0, 3);
-  const externalSources = [
-    {
-      label: "IEA (International Energy Agency) - Energy Technology Perspectives",
-      href: "https://www.iea.org/",
-    },
-    {
-      label: "IPCC - Climate Change information",
-      href: "https://www.ipcc.ch/",
-    },
-    {
-      label: "FAO - Bioenergy and biomass references",
-      href: "https://www.fao.org/",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -65,7 +32,7 @@ export default async function BlogPostPage({ params }: { params: { id: string } 
             className="inline-flex items-center gap-2 text-gray-600 hover:text-[#5FAA3F] transition-colors duration-300 mb-6 sm:mb-8"
           >
             <Icon name="arrow-left" className="w-4 h-4" />
-            <span className="text-sm sm:text-base">{tCommon("blog.backToBlog")}</span>
+            <span className="text-sm sm:text-base">{backToBlogLabel}</span>
           </Link>
 
           {/* Blog Header */}
@@ -187,45 +154,6 @@ export default async function BlogPostPage({ params }: { params: { id: string } 
               ))}
             </div>
             )}
-
-            {/* Related Posts & Sources */}
-            <section className="mt-12 sm:mt-14 md:mt-16 pt-8 border-t border-gray-200">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="text-xl sm:text-2xl font-bold mb-4" style={{ color: "#5FAA3F", fontFamily: "var(--font-poppins), Poppins, sans-serif" }}>
-                  Related Posts
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8">
-                  {relatedPosts.map((p) => (
-                    <Link
-                      key={p.id}
-                      href={`/blog/${p.id}`}
-                      className="inline-flex items-start gap-2 rounded-lg border border-gray-200 bg-white px-3 py-3 hover:border-[#5FAA3F] hover:shadow-sm transition-all"
-                    >
-                      <span className="text-[#5FAA3F] font-semibold">{p.category}</span>
-                      <span className="text-gray-900 font-medium">{p.title}</span>
-                    </Link>
-                  ))}
-                </div>
-
-                <h3 className="text-lg sm:text-xl font-bold mb-3" style={{ color: "#1A1A1A", fontFamily: "var(--font-poppins), Poppins, sans-serif" }}>
-                  Sources for Further Reading
-                </h3>
-                <ul className="space-y-2">
-                  {externalSources.map((src) => (
-                    <li key={src.href}>
-                      <a
-                        href={src.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#5FAA3F] hover:underline text-sm sm:text-base"
-                      >
-                        {src.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
 
             {/* Back to Blog Button */}
             <div className="mt-10 sm:mt-12 md:mt-16 pt-8 border-t border-gray-200">

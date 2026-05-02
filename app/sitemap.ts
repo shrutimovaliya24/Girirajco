@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next';
-import blogPostsData from '../data/blog.json';
+import { VIDEO_PRODUCT_SLUGS } from '../data/productVideos';
+import { BLOG_DETAIL_SLUGS } from '../lib/blog-slugs';
+import { PRODUCT_DETAIL_SLUGS } from '../lib/product-slugs';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://girirajco.com';
@@ -15,31 +17,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/products/videos',
   ];
 
-  // Product detail pages
-  const productPages = Array.from({ length: 5 }, (_, i) => i + 1).map(
-    (id) => `/products/${id}`
+  // Product detail pages (slug URLs)
+  const productPages = PRODUCT_DETAIL_SLUGS.map((slug) => `/products/${slug}`);
+
+  const blogPages = BLOG_DETAIL_SLUGS.map((slug) => `/blog/${slug}`);
+
+  const videoProductPages = VIDEO_PRODUCT_SLUGS.map(
+    (slug) => `/products/videos/${slug}`
   );
-
-  // Blog pages (source of truth: `data/blog.json`)
-  const blogPages = blogPostsData.map((post) => `/blog/${post.id}`);
-
-  // Video product pages
-  const videoProductPages = [
-    'namkeen',
-    'peanut',
-    'chana',
-    'fryms',
-    'chikki',
-    'banana-chips',
-    'papad',
-    'milk',
-    'maida-items',
-    'murmura',
-    'steam-boiler',
-    'hot-water-system',
-    'aluminium',
-    'cello-tape',
-  ].map((slug) => `/products/videos/${slug}`);
 
   const allRoutes = [
     ...routes,

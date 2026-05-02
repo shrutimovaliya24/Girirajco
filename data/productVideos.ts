@@ -193,3 +193,10 @@ export const productOrder = [
   'Cello Tape'
 ];
 
+/** URL segment for `/products/videos/[product]` — keep in sync with `productOrder`. */
+export function videoProductNameToSlug(name: string): string {
+  return name.toLowerCase().replace(/\s+/g, '-');
+}
+
+export const VIDEO_PRODUCT_SLUGS = productOrder.map(videoProductNameToSlug);
+

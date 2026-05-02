@@ -12,6 +12,7 @@ import Icon from '../components/Icon';
 import { FiPlay } from 'react-icons/fi';
 import faqData from '../../data/faq.json';
 import { gpbModels, type GPBModel } from './gpb-models';
+import { getProductSlugById } from '../../lib/product-slugs';
 import { useTranslation } from '../hooks/useTranslation';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -245,13 +246,16 @@ const products = [
       <section className="relative w-full bg-gradient-to-b from-white to-gray-50 py-8 sm:py-10 md:py-12 lg:py-16" aria-label="Products">
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-10 xl:px-12 2xl:px-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 sm:gap-8 md:gap-10 lg:gap-8 xl:gap-6">
-            {products.map((product) => (
+            {products.map((product) => {
+              const slug = getProductSlugById(product.id);
+              if (!slug) return null;
+              return (
               <article
                 key={product.id}
                 className="group bg-white rounded-xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col transform hover:-translate-y-1"
               >
                 <Link
-                  href={`/products/${product.id}`}
+                  href={`/products/${slug}`}
                   className="flex flex-col flex-grow"
                   aria-label={`View details for ${product.name}`}
                 >
@@ -289,7 +293,8 @@ const products = [
                   </div>
                 </Link>
               </article>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>
