@@ -81,8 +81,8 @@ function JourneyItemComponent({ item, index, isInView }: { item: JourneyItem; in
             <div className="relative z-10">
               {/* Year Badge with gradient */}
               <div
-                className={`relative bg-gradient-to-br from-[#22c55e] via-[#16a34a] to-[#15803d] text-white px-4 py-3 rounded-xl font-bold text-sm md:text-base shadow-xl transition-all duration-300 overflow-hidden ${
-                  isHovered ? 'scale-110 shadow-2xl ring-4 ring-[#22c55e]/20' : ''
+                className={`relative bg-gradient-to-br from-[#7BC85A] via-[#6EBD4F] to-[#5FAA3F] text-white px-4 py-3 rounded-xl font-bold text-sm md:text-base shadow-md transition-all duration-300 overflow-hidden [text-shadow:0_1px_2px_rgba(0,0,0,0.12)] ${
+                  isHovered ? 'scale-110 shadow-xl ring-4 ring-[#5FAA3F]/25' : ''
                 }`}
               >
                 {/* Shine effect */}
@@ -90,9 +90,9 @@ function JourneyItemComponent({ item, index, isInView }: { item: JourneyItem; in
                 <span className="relative z-10">{item.year}</span>
               </div>
               {/* Connecting Line to center timeline */}
-              <div className="hidden md:block absolute top-full left-1/2 transform -translate-x-1/2 w-1 h-10 bg-gradient-to-b from-[#22c55e] via-[#eab308] to-transparent"></div>
+              <div className="hidden md:block absolute top-full left-1/2 transform -translate-x-1/2 w-1 h-10 bg-gradient-to-b from-[#5FAA3F] via-[#eab308] to-transparent"></div>
               {/* Dot at the end of connecting line */}
-              <div className="hidden md:block absolute top-full left-1/2 transform -translate-x-1/2 translate-y-10 w-4 h-4 bg-gradient-to-br from-[#22c55e] to-[#16a34a] rounded-full border-3 border-white shadow-xl ring-2 ring-[#22c55e]/30"></div>
+              <div className="hidden md:block absolute top-full left-1/2 transform -translate-x-1/2 translate-y-10 w-4 h-4 bg-gradient-to-br from-[#6EBD4F] to-[#5FAA3F] rounded-full border-3 border-white shadow-lg ring-2 ring-[#5FAA3F]/35"></div>
             </div>
           </div>
         </div>
@@ -102,20 +102,20 @@ function JourneyItemComponent({ item, index, isInView }: { item: JourneyItem; in
           <div
             className={`relative bg-white rounded-2xl p-3 md:p-4 border transition-all duration-300 shadow-lg overflow-hidden ${
               isHovered
-                ? 'border-[#22c55e] shadow-2xl transform -translate-y-2 scale-[1.02]'
+                ? 'border-[#5FAA3F] shadow-2xl transform -translate-y-2 scale-[1.02]'
                 : 'border-gray-100'
             }`}
           >
             {/* Gradient Background on Hover */}
             <div
-              className={`absolute inset-0 bg-gradient-to-br from-[#22c55e]/5 via-transparent to-[#eab308]/5 transition-opacity duration-300 ${
+              className={`absolute inset-0 bg-gradient-to-br from-[#5FAA3F]/8 via-transparent to-[#eab308]/5 transition-opacity duration-300 ${
                 isHovered ? 'opacity-100' : 'opacity-0'
               }`}
             ></div>
             
             {/* Animated Accent Line */}
             <div
-              className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#22c55e] via-[#eab308] to-[#22c55e] transition-all duration-500 ease-out ${
+              className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#5FAA3F] via-[#eab308] to-[#5FAA3F] transition-all duration-500 ease-out ${
                 isHovered ? 'opacity-100' : 'opacity-0'
               }`}
             ></div>
@@ -131,7 +131,7 @@ function JourneyItemComponent({ item, index, isInView }: { item: JourneyItem; in
             </div>
 
             {/* Decorative Corner */}
-            <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#22c55e]/10 to-transparent rounded-bl-full transition-opacity duration-300 ${
+            <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#5FAA3F]/12 to-transparent rounded-bl-full transition-opacity duration-300 ${
               isHovered ? 'opacity-100' : 'opacity-0'
             }`}></div>
           </div>
@@ -184,7 +184,7 @@ function JourneyItemComponent({ item, index, isInView }: { item: JourneyItem; in
         <div className="max-w-5xl mx-auto">
           <div className="relative">
             {/* Vertical Timeline Line - Enhanced */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#22c55e] via-[#eab308] via-[#22c55e] to-[#eab308] transform -translate-x-1/2 rounded-full shadow-lg"></div>
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#5FAA3F] via-[#eab308] to-[#5FAA3F] transform -translate-x-1/2 rounded-full shadow-lg"></div>
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-white/50 to-transparent transform -translate-x-1/2"></div>
 
             {/* Journey Items */}
