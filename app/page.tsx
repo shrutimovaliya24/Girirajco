@@ -1,6 +1,7 @@
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import HomeProducts from './components/HomeProducts';
+import PelletSpecificationsSection from './components/PelletSpecificationsSection';
 import FuelSavingsCalculator from './components/FuelSavingsCalculator';
 import WhyChooseUs from './components/WhyChooseUs';
 import SectorsWeCover from './components/SectorsWeCover';
@@ -154,6 +155,7 @@ export default function Home() {
       <Hero />
       <AboutUs />
       <HomeProducts />
+      <PelletSpecificationsSection />
       <FuelSavingsCalculator />
       <WhyChooseUs />
       <SectorsWeCover />

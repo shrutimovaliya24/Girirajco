@@ -18,18 +18,27 @@ export default function FloatingContactWidget() {
 
   return (
     <div className="fixed bottom-3 right-3 sm:bottom-4 sm:right-4 md:bottom-5 md:right-5 lg:bottom-6 lg:right-6 z-50 group">
-      {/* Chat Icon Button - Green Gradient (Primary) */}
-      <div
-        className="text-white rounded-full shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer backdrop-blur-sm flex items-center justify-center"
-        style={{ 
-          background: 'linear-gradient(90deg, #5FAA3F, #2E7D32)',
-          width: '56px',
-          height: '56px',
-          minWidth: '56px',
-          minHeight: '56px'
-        }}
-      >
-        <Icon name="message-circle" className="w-6 h-6" style={{ filter: 'brightness(0) invert(1)' }} />
+      <div className="relative flex h-14 w-14 shrink-0 items-center justify-center">
+        <span className="floating-chat-ripple pointer-events-none absolute inset-0 rounded-full" aria-hidden />
+        <span
+          className="floating-chat-ripple floating-chat-ripple-delay pointer-events-none absolute inset-0 rounded-full"
+          aria-hidden
+        />
+        <button
+          type="button"
+          aria-haspopup="menu"
+          aria-label={String(t('floatingWidget.openChat'))}
+          className="floating-chat-btn-float relative flex h-14 w-14 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/20 text-white shadow-[0_8px_26px_-8px_rgba(46,125,50,0.55)] backdrop-blur-sm transition-all duration-300 ease-out hover:animate-none hover:scale-[1.12] hover:border-white/35 hover:brightness-[1.07] hover:shadow-[0_16px_38px_-10px_rgba(46,125,50,0.62)] active:scale-[1.06] focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[#5FAA3F]/45 focus-visible:ring-offset-2"
+          style={{
+            background: 'linear-gradient(135deg, #6ebe4f 0%, #5FAA3F 42%, #2E7D32 100%)',
+          }}
+        >
+          <Icon
+            name="message-circle"
+            className="w-6 h-6 transition-transform duration-300 ease-out group-hover:scale-110"
+            style={{ filter: 'brightness(0) invert(1)' }}
+          />
+        </button>
       </div>
 
       {/* Popup on Hover - Modern Round */}

@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import Icon from '../components/Icon';
 import OurJourney from '../components/OurJourney';
 import NeedHelp from '../components/NeedHelp';
+import PelletSpecificationsSection from '../components/PelletSpecificationsSection';
 import { useTranslation } from '../hooks/useTranslation';
 import { useRef, useEffect, useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -15,7 +15,6 @@ export default function AboutUsPage() {
   const { ref: missionRef, isVisible: missionVisible } = useScrollAnimation({ threshold: 0.2 });
   const { ref: aboutDescRef, isVisible: aboutDescVisible } = useScrollAnimation({ threshold: 0.2 });
   const { ref: whyBiomassRef, isVisible: whyBiomassVisible } = useScrollAnimation({ threshold: 0.2 });
-  const { ref: pelletSpecRef, isVisible: pelletSpecVisible } = useScrollAnimation({ threshold: 0.2 });
   const { ref: comparisonRef, isVisible: comparisonVisible } = useScrollAnimation({ threshold: 0.2 });
   
   const missionCardsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -316,121 +315,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* Pellet Specifications Section */}
-      <section ref={pelletSpecRef} className="relative w-full bg-white py-4 sm:py-5 md:py-8 lg:py-8 xl:py-10">
-        <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-10">
-          <div className="max-w-6xl mx-auto">
-            {/* Section Title */}
-            <div className={`text-center mb-4 sm:mb-5 md:mb-6 lg:mb-8 animate-on-scroll ${pelletSpecVisible ? 'animate-textAppear animated' : ''}`}>
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-2 sm:mb-2.5 md:mb-3" style={{ color: '#5FAA3F', fontFamily: 'var(--font-poppins), Poppins, sans-serif', lineHeight: '1.2' }}>
-                {String(t('aboutUs.pelletSpecificationsTitle'))}
-              </h2>
-              <div className="flex justify-center mb-2 sm:mb-2.5">
-                <div className="w-16 sm:w-20 md:w-24 h-1 bg-yellow-400"></div>
-              </div>
-            </div>
-
-            {/* Content Grid: Image and Specifications */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 md:gap-6 items-stretch">
-              {/* Pellet Image */}
-              <div className={`animate-on-scroll ${pelletSpecVisible ? 'animate-slideInFromLeft animated' : ''}`}>
-                <div className="relative rounded-xl overflow-hidden border border-gray-200 shadow-sm w-full h-full">
-                  <div className="aspect-square relative">
-                    <Image
-                      src="/Pine wood pellets.png"
-                      alt="Pine Wood Pellets"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const parent = target.parentElement;
-                        if (parent && !parent.querySelector('.placeholder')) {
-                          const placeholder = document.createElement('div');
-                          placeholder.className = 'placeholder w-full h-full bg-green-100 flex items-center justify-center';
-                          placeholder.innerHTML = '<p class="text-gray-500 text-sm">Pine Wood Pellets Image</p>';
-                          parent.appendChild(placeholder);
-                        }
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Specifications */}
-              <div className={`animate-on-scroll ${pelletSpecVisible ? 'animate-slideInFromRight animated' : ''}`}>
-                <div className="bg-white rounded-xl p-4 sm:p-5 border border-gray-200 shadow-sm w-full h-full flex flex-col transition-all duration-300 hover:-translate-y-1" onMouseEnter={(e) => e.currentTarget.style.borderColor = '#5FAA3F'} onMouseLeave={(e) => e.currentTarget.style.borderColor = '#E5E7EB'}>
-                  <div className="space-y-3 sm:space-y-4 flex-grow">
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
-                      <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {String(t('aboutUs.pelletSpec1'))}
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
-                      <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {String(t('aboutUs.pelletSpec2'))}
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
-                      <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {String(t('aboutUs.pelletSpec3'))}
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
-                      <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {String(t('aboutUs.pelletSpec4'))}
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
-                      <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {String(t('aboutUs.pelletSpec5'))}
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
-                      <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {String(t('aboutUs.pelletSpec6'))}
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
-                      <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {String(t('aboutUs.pelletSpec7'))}
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <Icon name="check-circle" className="w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5" style={{ color: '#5FAA3F' }} />
-                      <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed" style={{ fontFamily: 'var(--font-inter), Inter, sans-serif' }}>
-                        {String(t('aboutUs.pelletSpec8'))}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Get Pellet Inquiry Button */}
-                  <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-gray-200">
-                    <Link
-                      href="/contact-us"
-                      className="inline-flex items-center justify-center px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-xs sm:text-sm transform hover:scale-105"
-                      style={{
-                        background: 'linear-gradient(90deg, #5FAA3F, #2E7D32)',
-                        fontFamily: 'var(--font-poppins), Poppins, sans-serif'
-                      }}
-                    >
-                      {String(t('aboutUs.contactForPelletRequirement'))}
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PelletSpecificationsSection />
 
       {/* Comparison Table */}
       <section ref={comparisonRef} className="relative w-full bg-white py-4 sm:py-5 md:py-8 lg:py-8 xl:py-10">

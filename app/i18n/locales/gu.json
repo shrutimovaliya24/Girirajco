@@ -84,6 +84,9 @@
     "tentativeSavingsRs": "આશરે બચત (Rs)",
     "tentativeSavingsPercent": "આશરે બચત (%)",
     "pelletSpecificationsTitle": "બાયોમાસ લાકડાના પેલેટ્સ સ્પષ્ટતા",
+    "pelletSpecificationsSubtitle": "પેલેટ્સ તરફ જઈ રહ્યાં છો અથવા પુરવઠો વધારવા માંગો છો? માસિક જરૂરિયાત, સ્થાન અને સમયરેખા શેર કરો—અમે સ્પષ્ટતા, અંદાજિત ભાવ અને ડિલિવરી વિકલ્પો સાથે પાછા ફરીશું.",
+    "pelletInquiryHint": "મફત પરામર્શ • સામાન્ય રીતે એક કાર્યદિવસની અંદર પ્રતિસાદ",
+    "pelletInquiryWhatsApp": "WhatsApp પર ઝડપી પૂછપરછ",
     "pelletSpec1": "ઉચ્ચ કેલોરિફિક મૂલ્ય: > 4200 kcal/kg ± 2%",
     "pelletSpec2": "ઓછી ભેજ: < 8%",
     "pelletSpec3": "ઓછી રાખ: < 1.5 - 3%",
@@ -194,7 +197,8 @@
   },
   "floatingWidget": {
     "whatsapp": "WhatsApp",
-    "contact": "સંપર્ક"
+    "contact": "સંપર્ક",
+    "openChat": "ચેટ અને સંપર્ક વિકલ્પો ખોલો"
   },
   "products": {
     "title": "અમારા ઉત્પાદનો",

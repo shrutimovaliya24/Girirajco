@@ -84,6 +84,9 @@
     "tentativeSavingsRs": "Tentative Savings (Rs)",
     "tentativeSavingsPercent": "Tentative Savings (%)",
     "pelletSpecificationsTitle": "Biomass Wood Pellets Specifications",
+    "pelletSpecificationsSubtitle": "Planning a switch to pellets or scaling supply? Share your volume, location, and timeline—we respond with specs, indicative pricing, and delivery options tailored to your plant.",
+    "pelletInquiryHint": "Free consultation • We typically reply within one business day",
+    "pelletInquiryWhatsApp": "Quick inquiry on WhatsApp",
     "pelletSpec1": "High Calorific Value: > 4200 kcal/kg ± 2%",
     "pelletSpec2": "Low Moisture: < 8%",
     "pelletSpec3": "Low Ash: < 1.5 - 3%",
@@ -194,7 +197,8 @@
   },
   "floatingWidget": {
     "whatsapp": "WhatsApp",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openChat": "Open chat and contact options"
   },
   "products": {
     "title": "Our Products",

@@ -163,7 +163,7 @@ export default function Footer() {
                   href="https://wa.me/919825213536"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-green-600 transition min-h-[32px] min-w-[32px] cursor-pointer"
+                  className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-[#25D366] shadow-md ring-1 ring-white/15 min-h-[32px] min-w-[32px] cursor-pointer"
                   aria-label="WhatsApp"
                 >
                   <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -175,7 +175,7 @@ export default function Footer() {
                   href="https://www.instagram.com/giriraj_india/?igsh=Zmp1OWJiejM0Yzdz#"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 transition min-h-[32px] min-w-[32px] cursor-pointer"
+                  className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-[#833AB4] via-[#E4405F] to-[#FCAF45] shadow-md ring-1 ring-white/15 min-h-[32px] min-w-[32px] cursor-pointer"
                   aria-label="Instagram"
                 >
                   <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -187,17 +187,17 @@ export default function Footer() {
                   href="https://www.linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-blue-700 transition min-h-[32px] min-w-[32px] cursor-pointer"
+                  className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-[#0A66C2] shadow-md ring-1 ring-white/15 min-h-[32px] min-w-[32px] cursor-pointer"
                   aria-label="LinkedIn"
                 >
-                  <Icon name="linkedin" className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" style={{ filter: 'brightness(0) invert(1)' }} />
+                  <Icon name="linkedin" className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-white" style={{ color: '#FFFFFF' }} />
                 </a>
                 {/* YouTube */}
                 <a 
                   href="https://www.youtube.com/@GirirajIndustries"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-red-600 transition min-h-[32px] min-w-[32px] cursor-pointer"
+                  className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-[#FF0000] shadow-md ring-1 ring-white/15 min-h-[32px] min-w-[32px] cursor-pointer"
                   aria-label="YouTube"
                 >
                   <svg className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
