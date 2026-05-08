@@ -5,15 +5,20 @@ import Icon from "../../components/Icon";
 import NeedHelp from "../../components/NeedHelp";
 import blogPostsData from "../../../data/blog.json";
 import { localizeBlogPostForDisplay } from "../../../lib/blog-localize";
-import { detectLocale, tCommon } from "../../i18n/serverTranslate";
-import { getBlogPostIdFromSlug } from "../../../lib/blog-slugs";
+import { getBlogPostIdFromSlug, getBlogSlugById } from "../../../lib/blog-slugs";
+
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  return (blogPostsData as Array<{ id: number }>)
+    .map((p) => getBlogSlugById(p.id))
+    .filter((slug): slug is string => Boolean(slug))
+    .map((slug) => ({ slug }));
+}
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const locale = await detectLocale();
   const postId = getBlogPostIdFromSlug(slug);
   const post = postId != null ? blogPostsData.find((p) => p.id === postId) : undefined;
-  const backToBlogLabel = await tCommon("blog.backToBlog");
+  const backToBlogLabel = "Back to Blog";
 
   if (!post) {
     notFound();
@@ -23,10 +28,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
-  const displayPost = await localizeBlogPostForDisplay(post, locale);
+  const displayPost = await localizeBlogPostForDisplay(post, "en");
 
   return (
-    <div className="min-h-screen bg-white" lang={locale}>
+    <div className="min-h-screen bg-white" lang="en">
       {/* Hero Section */}
       <section className="relative w-full bg-white py-6 sm:py-8 md:py-10 lg:py-12">
         <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-10">

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import blogPostsData from '../../../data/blog.json';
 import { localizeBlogMeta } from '../../../lib/blog-localize';
-import { detectLocale } from '../../i18n/serverTranslate';
 import { getBlogPostIdFromSlug, getBlogSlugById } from '../../../lib/blog-slugs';
 
 export async function generateMetadata({
@@ -10,7 +9,6 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const locale = await detectLocale();
   const postId = getBlogPostIdFromSlug(slug);
   const canonicalSlug = postId != null ? getBlogSlugById(postId) : null;
   const post = postId != null ? blogPostsData.find((p) => p.id === postId) : undefined;
@@ -23,7 +21,7 @@ export async function generateMetadata({
     };
   }
 
-  const meta = await localizeBlogMeta(post, locale);
+  const meta = await localizeBlogMeta(post, 'en');
   const title = meta.title;
   const description = meta.description;
   const categoryLabel = meta.category;
@@ -53,7 +51,7 @@ export async function generateMetadata({
       publishedTime: post.date,
       authors: [post.author],
       section: categoryLabel,
-      locale: locale === 'gu' ? 'gu_IN' : 'en_US',
+      locale: 'en_US',
     },
     twitter: {
       card: 'summary_large_image',

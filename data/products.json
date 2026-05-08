@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "name": "Biomass Pellet Burner",
+    "summary": "High-efficiency biomass pellet burner (GPB series) for industrial heating. Reduce fuel costs by up to 56% with sustainable biomass pellets.",
+    "ogImage": "/product/Wood Pellet Burner.png"
+  },
+  {
+    "id": 2,
+    "name": "Biomass Pellet Stove",
+    "summary": "Compact, efficient biomass pellet stove for controlled heating in commercial and small industrial spaces.",
+    "ogImage": "/product/Wood Pellet Stove.png"
+  },
+  {
+    "id": 3,
+    "name": "Batch Fryer",
+    "summary": "Batch fryer for food processing with efficient biomass-powered heating for consistent temperatures and lower running costs.",
+    "ogImage": "/product/Batch Fryer.png"
+  },
+  {
+    "id": 4,
+    "name": "Hot Air Generator",
+    "summary": "Indirect hot air generator for industrial drying and process heating, powered by biomass for efficient and clean heat delivery.",
+    "ogImage": "/product/Hot Air Generator.png"
+  },
+  {
+    "id": 5,
+    "name": "Aluminium Melting Furnace",
+    "summary": "Energy-efficient aluminium melting furnace powered by biomass pellets for reliable, cost-effective industrial melting operations.",
+    "ogImage": "/product/Aluminium Melting Furnace.png"
+  }
+]
+
