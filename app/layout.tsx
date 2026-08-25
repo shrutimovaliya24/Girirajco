@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import FloatingContactWidget from "./components/FloatingContactWidget";
 import I18nProvider from "./components/I18nProvider";
 import AnnouncementBar from "./components/AnnouncementBar";
+import ElevenLabsWidget from "./components/ElevenLabsWidget";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -205,6 +206,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <FloatingContactWidget />
+        <ElevenLabsWidget />
         </I18nProvider>
       </body>
     </html>
