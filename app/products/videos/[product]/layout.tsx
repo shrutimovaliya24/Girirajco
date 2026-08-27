@@ -4,7 +4,6 @@ import {
   productVideos,
   videoProductNameToSlug,
 } from '../../../../data/productVideos';
-import { buildProductVideoJsonLd } from '../../../../data/productVideoSchema';
 
 export async function generateMetadata({ params }: { params: Promise<{ product: string }> }): Promise<Metadata> {
   const { product } = await params;
@@ -56,26 +55,11 @@ export async function generateMetadata({ params }: { params: Promise<{ product: 
   };
 }
 
-export default async function ProductVideoLayout({
+export default function ProductVideoLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ product: string }>;
 }) {
-  const { product } = await params;
-  const videoJsonLd = buildProductVideoJsonLd(product);
-
-  return (
-    <>
-      {videoJsonLd ? (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }}
-        />
-      ) : null}
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
 
