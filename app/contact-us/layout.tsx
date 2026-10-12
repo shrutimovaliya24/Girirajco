@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Contact Us - Get in Touch with Giriraj Industries",
+  title: "Contact Us - Biomass Heating System Enquiries",
   description: "Contact Giriraj Industries for inquiries about biomass heating systems, biomass pellet burners, and industrial heating solutions. Located in Surat, Gujarat, India. Phone: +91 9825213536, Email: info@girirajco.com",
   keywords: "contact Giriraj Industries, biomass heating inquiry, biomass pellet burner contact, industrial heating solutions, Surat Gujarat",
   alternates: {

@@ -40,6 +40,12 @@
           destination: '/GIRIRAJ - SERVING GREEN HEAT.pdf',
           permanent: true,
         },
+        // Gujarati is switched client-side; there is no /gu route
+        {
+          source: '/gu',
+          destination: '/',
+          permanent: true,
+        },
       ];
     },
     // Headers for better caching and security

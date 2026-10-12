@@ -27,7 +27,7 @@ export async function generateMetadata({
   const imageUrl = record?.ogImage ?? '/product/Wood Pellet Burner.png';
 
   return {
-    title: `${productName} - Giriraj Industries`,
+    title: { absolute: `${productName} Manufacturer in India | Giriraj Industries` },
     description,
     keywords: `${productName.toLowerCase()}, biomass heating, industrial equipment, Giriraj Industries`,
     alternates: {

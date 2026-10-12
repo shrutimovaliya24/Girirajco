@@ -466,8 +466,6 @@ export default function ProductDetailPageClient() {
                 <article
                   key={relatedProduct.id}
                   className="group bg-white rounded-xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col transform hover:-translate-y-1"
-                  itemScope
-                  itemType="https://schema.org/Product"
                 >
                   <Link
                     href={`/products/${relatedSlug}`}
@@ -483,7 +481,6 @@ export default function ProductDetailPageClient() {
                           fill
                           className="object-contain transition-transform duration-500 group-hover:scale-105"
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                          itemProp="image"
                         />
                       </div>
                     </div>
@@ -494,7 +491,6 @@ export default function ProductDetailPageClient() {
                       <h3 
                         className="text-base sm:text-lg md:text-xl font-bold mb-4 sm:mb-5 text-gray-900 group-hover:text-[#5FAA3F] transition-colors duration-300 text-center min-h-[3rem] flex items-center justify-center" 
                         style={{ fontFamily: 'var(--font-poppins), Poppins, sans-serif' }}
-                        itemProp="name"
                       >
                         {relatedProduct.name}
                       </h3>

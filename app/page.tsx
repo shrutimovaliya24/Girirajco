@@ -1,5 +1,6 @@
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
+import AchievementsSection from './components/AchievementsSection';
 import HomeProducts from './components/HomeProducts';
 import PelletSpecificationsSection from './components/PelletSpecificationsSection';
 import FuelSavingsCalculator from './components/FuelSavingsCalculator';
@@ -9,10 +10,9 @@ import Testimonials from './components/Testimonials';
 import NeedHelp from './components/NeedHelp';
 import type { Metadata } from 'next';
 import faqData from '../data/faq.json';
-import testimonialsData from '../data/testimonials.json';
 
 export const metadata: Metadata = {
-  title: "Home - High-Efficiency Biomass Heating Systems",
+  title: { absolute: "Biomass Heating Systems Manufacturer in India | Giriraj Industries" },
   description: "Giriraj Industries manufactures high-efficiency biomass heating systems and biomass pellet burners. Calculate your fuel savings and discover how you can reduce energy costs by up to 56% with sustainable biomass pellets.",
   keywords: "biomass heating, biomass pellet burners, fuel savings calculator, industrial heating, renewable energy, sustainable heating",
   alternates: {
@@ -48,12 +48,7 @@ export default function Home() {
     "@type": "WebSite",
     "name": "Giriraj Industries",
     "url": "https://girirajco.com",
-    "description": "Manufacturer of high-efficiency biomass heating systems and biomass pellet burners",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://girirajco.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "description": "Manufacturer of high-efficiency biomass heating systems and biomass pellet burners"
   };
 
   const serviceSchema = {
@@ -100,34 +95,6 @@ export default function Home() {
     ]
   };
 
-  // Review Schema (AggregateRating from Testimonials)
-  const reviewSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Giriraj Industries",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": testimonialsData.length.toString(),
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": testimonialsData.map((testimonial) => ({
-      "@type": "Review",
-      "author": {
-        "@type": "Organization",
-        "name": testimonial.company
-      },
-      "reviewBody": testimonial.text,
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": testimonial.rating.toString(),
-        "bestRating": "5",
-        "worstRating": "1"
-      }
-    }))
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Structured Data */}
@@ -147,13 +114,10 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
-      />
       
       <Hero />
       <AboutUs />
+      <AchievementsSection />
       <HomeProducts />
       <PelletSpecificationsSection />
       <FuelSavingsCalculator />
