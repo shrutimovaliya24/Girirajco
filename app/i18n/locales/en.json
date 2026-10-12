@@ -98,6 +98,39 @@
     "getPelletInquiry": "For pellet inquiry",
     "contactForPelletRequirement": "Contact us for pellet Requirement"
   },
+  "achievements": {
+    "eyebrow": "Our Achievements",
+    "titleStart": "Commitment to",
+    "titleQuality": "Quality",
+    "titleMid": "&",
+    "titleStandards": "International Standards",
+    "iso": {
+      "title": "ISO 9001 Certification",
+      "subtitle": "Quality Management",
+      "point1": "Quality management",
+      "point2": "Customer satisfaction",
+      "point3": "Continuous improvement",
+      "viewLabel": "View ISO 9001 Certificate",
+      "previewAlt": "ISO 9001:2015 Certificate of Registration issued to Giriraj Industries",
+      "descriptionLead": "Giriraj Industries is committed to delivering reliable, high-quality industrial heating solutions. Our achievement of ",
+      "descriptionBold": "ISO 9001 certification by EIAC",
+      "descriptionTail": " reflects our dedication to quality management, customer satisfaction, and continuous improvement."
+    },
+    "ce": {
+      "title": "CE Marking",
+      "subtitle": "Applicable Products",
+      "point1": "Relevant safety requirements",
+      "point2": "Health and environmental requirements",
+      "point3": "Domestic and international markets",
+      "viewLabel": "View CE Certificate of Compliance",
+      "previewAlt": "CE Certificate of Compliance issued to Giriraj Industries",
+      "descriptionLead": "Our ",
+      "descriptionBold": "CE marking for applicable products",
+      "descriptionTail": " demonstrates our commitment to meeting relevant European safety, health, and environmental requirements, supporting our vision of serving customers in domestic and international markets."
+    },
+    "opensNewTab": "(opens in a new tab)",
+    "cta": "Discuss Your Requirements"
+  },
   "ourJourney": {
     "title": "Our Journey",
     "description": "A timeline of our growth and innovation in biomass heating solutions",
