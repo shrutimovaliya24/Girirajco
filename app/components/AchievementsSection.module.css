@@ -103,13 +103,6 @@
   overflow: hidden;
   border: 1px solid #d9d9d9;
   box-shadow: 0 4px 14px rgba(26, 26, 26, 0.12);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-@media (hover: hover) {
-  .preview:hover {
-    border-color: #5faa3f;
-    box-shadow: 0 8px 22px rgba(26, 26, 26, 0.18);
-  }
 }
 
 .previewImg {
@@ -128,28 +121,6 @@
   outline-offset: 3px;
 }
 
-.viewLink {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  min-height: 44px;
-  padding: 10px 18px;
-  border: 1.5px solid #2e7d32;
-  border-radius: 8px;
-  color: #2e7d32;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  text-align: center;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-@media (min-width: 640px) {
-  .viewLink { width: auto; align-self: flex-start; }
-}
-@media (hover: hover) {
-  .viewLink:hover { background: #2e7d32; color: #ffffff; }
-}
 
 .cta {
   display: inline-flex;
@@ -170,5 +141,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card, .preview, .viewLink, .cta { transition: none; }
+  .card, .cta { transition: none; }
 }

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { FiAward, FiCheck, FiExternalLink, FiShield } from 'react-icons/fi';
+import { FiAward, FiCheck, FiShield } from 'react-icons/fi';
 import { useTranslation } from '../hooks/useTranslation';
 import styles from './AchievementsSection.module.css';
 
@@ -11,7 +11,6 @@ type CardKey = 'iso' | 'ce';
 const CARDS: {
   key: CardKey;
   Icon: typeof FiAward;
-  href: string;
   image: string;
   imageWidth: number;
   imageHeight: number;
@@ -19,7 +18,6 @@ const CARDS: {
   {
     key: 'iso',
     Icon: FiAward,
-    href: '/certificates/iso-9001-certificate.pdf',
     image: '/certificates/iso-9001-certificate-thumb.jpg',
     imageWidth: 1000,
     imageHeight: 1415,
@@ -27,7 +25,6 @@ const CARDS: {
   {
     key: 'ce',
     Icon: FiShield,
-    href: '/certificates/ce-compliance-certificate.jpeg',
     image: '/certificates/ce-compliance-certificate.jpeg',
     imageWidth: 1131,
     imageHeight: 1600,
@@ -60,7 +57,7 @@ export default function AchievementsSection() {
         </div>
 
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 list-none p-0 m-0">
-          {CARDS.map(({ key, Icon, href, image, imageWidth, imageHeight }) => (
+          {CARDS.map(({ key, Icon, image, imageWidth, imageHeight }) => (
             <li key={key} className="flex">
               <article className={`${styles.card} w-full`}>
                 <div className="flex items-center gap-4 mb-5">
@@ -78,13 +75,7 @@ export default function AchievementsSection() {
                 </div>
 
                 <div className="flex justify-center mb-5">
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${styles.preview} ${styles.focusable}`}
-                    aria-label={`${tr(`${key}.viewLabel`)} ${tr('opensNewTab')}`}
-                  >
+                  <div className={styles.preview}>
                     <Image
                       src={image}
                       alt={tr(`${key}.previewAlt`)}
@@ -94,14 +85,14 @@ export default function AchievementsSection() {
                       quality={90}
                       className={styles.previewImg}
                     />
-                  </a>
+                  </div>
                 </div>
 
                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-5" style={inter}>
                   {tr(`${key}.descriptionLead`)}{tr(`${key}.descriptionBold`)}{tr(`${key}.descriptionTail`)}
                 </p>
 
-                <ul className="list-none p-0 m-0 mb-6 space-y-2.5 flex-1">
+                <ul className="list-none p-0 m-0 space-y-2.5">
                   {POINTS.map((p) => (
                     <li key={p} className="flex items-start gap-3 text-sm sm:text-base font-medium text-gray-900" style={inter}>
                       <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#2E7D32] text-white" aria-hidden="true">
@@ -111,18 +102,6 @@ export default function AchievementsSection() {
                     </li>
                   ))}
                 </ul>
-
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${styles.viewLink} ${styles.focusable}`}
-                  style={poppins}
-                >
-                  <span>{tr(`${key}.viewLabel`)}</span>
-                  <span className="sr-only"> {tr('opensNewTab')}</span>
-                  <FiExternalLink size={16} aria-hidden="true" />
-                </a>
               </article>
             </li>
           ))}
